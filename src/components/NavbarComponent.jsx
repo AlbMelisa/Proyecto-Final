@@ -12,7 +12,7 @@ const NavbarComponent = () => {
         <div >
           <Image src="https://trello.com/1/cards/65a2081264be9affda46ff7d/attachments/65a208ee049d921f3d252e18/previews/65a208ef049d921f3d252e3e/download/LogoGymageLEtras.png" className='gymmageStyle  mt-4'/> 
         </div>
-        <div className='logoStyle mt-3 d-flex justify-content-end'>
+        <div className='logoStyle mt-3 '>
           <Image src="https://trello.com/1/cards/65a2081264be9affda46ff7d/attachments/65a208ebc95461db4f8ff4d7/previews/65a208ebc95461db4f8ff669/download/LogoGymage.png1x180" />
         </div>
           <Navbar.Toggle />
