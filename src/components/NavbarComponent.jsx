@@ -7,7 +7,7 @@ import { NavbarBrand } from 'react-bootstrap';
 
 const NavbarComponent = () => {
   return (
-    <Navbar expand="lg" className="navbarStyle ">
+    <Navbar expand="lg" className="navbarStyle">
       <Container  >
         <div >
           <Image src="https://trello.com/1/cards/65a2081264be9affda46ff7d/attachments/65a208ee049d921f3d252e18/previews/65a208ef049d921f3d252e3e/download/LogoGymageLEtras.png" className='gymmageStyle  mt-4'/> 
