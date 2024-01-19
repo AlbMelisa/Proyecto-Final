@@ -1,8 +1,13 @@
 import React from 'react'
+import { BrowserRouter, Routes,Route,Navigate } from 'react-router-dom'
 
 const PublicRouter = () => {
   return (
-    <div>PublicRouter</div>
+    <BrowserRouter>
+      <Routes>
+        <Route/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
