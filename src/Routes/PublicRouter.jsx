@@ -11,6 +11,7 @@ export const PublicRouter = () => {
       <Route path='/' element={<Navigate to='/home'/>} />
       <Route path='login' element={<LoginComponent/>} />
       <Route path='register' element={<RegisterComponent/>} />
+      <Route path='nosotros' element={<AboutUs/>} />
 
     </Routes>
     </BrowserRouter>
