@@ -1,13 +1,24 @@
+
+import { useState } from 'react'
 import './App.css'
-import NavbarComponent from './components/NavbarComponent/NavbarComponent'
-import CardPlan from './components/CardPlan/CardPlan'
+import PublicRouter from './Routes/PublicRouter'
+import PrivateRoute from './Routes/PrivateRoute'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
+
+  const [user , setUser] = useState({ })
   return (
     <>
-      <NavbarComponent/>
-      <CardPlan/>
-    </>
+    {
+      !user.isLogged ?
+      <PublicRouter/>
+      :
+      <BrowserRouter>
+      <PrivateRoute/>
+      </BrowserRouter>
+    }
+ </>
   )
 }
 
