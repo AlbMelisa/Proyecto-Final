@@ -1,3 +1,4 @@
+
 import { useState } from 'react'
 import './App.css'
 import PublicRouter from './Routes/PublicRouter'
@@ -17,7 +18,7 @@ function App() {
       <PrivateRoute/>
       </BrowserRouter>
     }
-    </>
+ </>
   )
 }
 
