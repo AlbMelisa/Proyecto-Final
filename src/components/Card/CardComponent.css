@@ -1,0 +1,38 @@
+
+
+
+.card-style{
+  height: 250px;
+  width: 200px;
+  margin: 10px;
+  background-color: rgba(188, 200, 203, 0.7);
+  border-radius: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+  max-height: 300px;
+  font-family: 'Secular One', sans-serif;
+ 
+}
+
+.container-cards{
+ 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+   /* Ajusta según sea necesario */
+  /* Ajusta según sea necesario */
+
+}
+
+@media (max-width: 768px) {
+  .card-style {
+    width: 100%; /* Otra opción puede ser usar un porcentaje */
+  }
+}
