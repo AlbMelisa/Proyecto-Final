@@ -14,7 +14,7 @@
 
 #footer-container .info-links li {
   list-style: none; /* Quitar los puntos de la lista */
-  margin-bottom: 8px; /* Ajustar el espaciado entre enlaces de información */
+  margin-bottom: 12px; /* Ajustar el espaciado entre enlaces de información */
 }
 
 #footer-container .social-links a,

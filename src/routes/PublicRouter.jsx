@@ -1,14 +1,21 @@
 import React from 'react'
-import { BrowserRouter, Routes,Route,Navigate } from 'react-router-dom'
+import LoginComponent from '../Components/LoginComponent'
+import RegisterComponent from '../Components/RegisterComponent'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 
-const PublicRouter = () => {
+export const PublicRouter = () => {
   return (
+    <>
     <BrowserRouter>
-      <Routes>
-        <Route/>
-      </Routes>
+    <Routes>
+      <Route path='/' element={<Navigate to='/home'/>} />
+      <Route path='login' element={<LoginComponent/>} />
+      <Route path='register' element={<RegisterComponent/>} />
+
+    </Routes>
     </BrowserRouter>
+    </>
   )
 }
 
-export default PublicRouter
+export default PublicRouter;
