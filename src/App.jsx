@@ -1,13 +1,15 @@
 
 import { useState } from 'react'
 import './App.css'
-import PublicRouter from './Routes/PublicRouter'
 import PrivateRoute from './Routes/PrivateRoute'
 import { BrowserRouter } from 'react-router-dom'
+import PublicRouter  from './Routes/PublicRouter'
+import CardPlan from './components/CardPlan/CardPlan'
 
 function App() {
 
-  const [user , setUser] = useState({ })
+  const [user , setUser] = useState({ token:null,userInfo:null, isLogged:false})
+
   return (
     <>
     {
@@ -15,7 +17,7 @@ function App() {
       <PublicRouter/>
       :
       <BrowserRouter>
-      <PrivateRoute/>
+       <PrivateRoute/>
       </BrowserRouter>
     }
 </>
