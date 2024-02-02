@@ -5,8 +5,18 @@ const CardPlan = () => {
 
   const {register, handleSubmit, formState:{errors},reset} = useForm()
 
-  const onSubmit = (data) =>{
-    const fullData = {...data}
+  const onSubmit = async (data) =>{
+    console.log(data)
+
+    const fullData = {...data,role:'client'}
+    const response = await fetch('http://localhost:4000/planUno',{
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials:'include',
+      body: JSON.stringify(fullData)
+    })
+    const responseData = await response.json()
+    console.log(responseData)
   }
 
   return (
