@@ -4,7 +4,6 @@ import './App.css'
 import PrivateRoute from './Routes/PrivateRoute'
 import { BrowserRouter } from 'react-router-dom'
 import PublicRouter  from './Routes/PublicRouter'
-import CardPlan from './components/CardPlan/CardPlan'
 
 function App() {
 

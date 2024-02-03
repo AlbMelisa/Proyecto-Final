@@ -87,8 +87,7 @@ body{
 /*paete de Planes*/
 .contenedor{
   background-image: url('./images/mancuernasRecortadas.png');
-  width: auto;
-  height: auto;
+  height: 400px;
 }
 /*Parte de CardProducto*/
 .cardProducto{
@@ -99,4 +98,9 @@ body{
 .imgProducto:hover{
   filter: brightness(0.9);
   opacity: 0.8;
+}
+/*imagen principal*/
+.imagenPrincipal{
+  width: 1500px;
+  height: 400px;
 }

@@ -1,7 +1,6 @@
-import React from 'react'
 import CardPlan from '../components/CardPlan/CardPlan'
 
-const plan = () => {
+const Plan = () => {
   return (
     <>
       <CardPlan/>
@@ -9,4 +8,4 @@ const plan = () => {
   )
 }
 
-export default plan
+export default Plan
