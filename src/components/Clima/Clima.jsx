@@ -1,6 +1,5 @@
-import React from 'react'
 import '../Clima/clima.css'
-import { Col, Row } from 'react-bootstrap'
+import { Col, Container, Row } from 'react-bootstrap'
 import Swal from 'sweetalert2';
 
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
@@ -29,26 +28,26 @@ const clima = fetch(apiUrlWithParams)
 
 const Clima = () => {
   return (
-    <div className='containerClima m-0'>
+    <Container className=' m-0'>
       <Row className='p-0'>
         <Col>
-          <h1 className='m-3 text-center'>Horarios</h1>
+          <h1 className='m-3 text-center text-dark'>Horarios</h1>
           <Row className='text-center g-0 p-0'>
-            <Col>
+            <Col className='text-dark'>
               <h2>LUN-VIE</h2>
               <h3>8:00 a 23:00</h3>
             </Col>
-            <Col>
-              <h2>SABADOS</h2>
+            <Col className='text-dark'>
+              <h2>SÁBADOS</h2>
               <h3>9:00 a 18:00</h3>
             </Col>
           </Row>
         </Col>
-        <Col className='p-0 '>
+        <Col className='p-0 text-dark'>
           <h1>horarios</h1>
         </Col>
       </Row>
-    </div>
+    </Container>
   )
 }
 

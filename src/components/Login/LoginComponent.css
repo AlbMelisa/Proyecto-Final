@@ -1,0 +1,25 @@
+.ConteinerCard{
+  background-image: url('/src/images/ImgProyect.png');
+  background-color: aquamarine;
+  border-radius: 20px;
+}
+.color{
+  color: white;
+  border-color: white;
+}
+.colorDos{
+  color: black;
+}
+.colorForm{
+  background-color: #BCC8CB;
+  border-radius: 20px;
+}
+.colorForm:focus-visible{
+  background-color: #BCC8CB;
+  outline: none; 
+
+}
+.colorForm:focus {
+  border: 2px solid #a0a0a0; /* Puedes cambiar el color y el grosor del borde */
+  box-shadow: 0 0 4px #FFFFFF; /* Puedes cambiar el color y la intensidad del resplandor */
+}
