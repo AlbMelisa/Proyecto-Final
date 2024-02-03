@@ -1,0 +1,22 @@
+.navbarStyle{
+  background-color: #000;
+}
+
+.gymmageStyle{
+  height: 2rem;
+}
+.logoStyle{
+  height: 3rem;
+}
+.buttonStyle{
+ background-color: #141414;
+  border-radius: 20px;
+  cursor: pointer;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+}
+.buttonStyle:hover{
+  background-color: #62D8EA;
+  color: #000;
+}

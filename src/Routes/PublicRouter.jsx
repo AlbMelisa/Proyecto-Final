@@ -6,6 +6,8 @@ import Plan from '../pages/plan'
 import Contacto from '../pages/Contacto'
 import Error404 from '../pages/Error404'
 import Login from '../pages/Login'
+import RegisterComponents from '../components/Register/RegisterComponent'
+import Registro from '../pages/Registro'
 
 const PublicRouter = () => {
   return (
@@ -14,6 +16,7 @@ const PublicRouter = () => {
         <Route path='/' element={<Navigate to={'/home'}/>}/>
         <Route path='/Home' element={<Home/>} />
         <Route path='/PlanUno' element={<Plan/>}/>
+        <Route path='/Registro' element={<Registro/>}/>
 
         <Route path='/Plan/:id' element={<div>ekmre</div>}/>
         <Route path='/Contacto' element={<Contacto/>}/>
