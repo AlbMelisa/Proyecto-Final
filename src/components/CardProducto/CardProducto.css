@@ -1,0 +1,9 @@
+.cardProducto{
+  width: 12rem;
+  border-radius: 0px;
+  background-color: #302D2D;
+}
+.imgProducto:hover{
+  filter: brightness(0.9);
+  opacity: 0.8;
+}

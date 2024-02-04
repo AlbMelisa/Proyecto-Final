@@ -11,6 +11,7 @@ import {
 import { useForm } from "react-hook-form";
 import { API_URL } from "../../utils/constant.js";
 import Swal from "sweetalert2";
+import '../CardPlan/CardPlan.css'
 
 const CardPlan = () => {
   const {

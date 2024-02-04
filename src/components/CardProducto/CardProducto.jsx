@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-
+import '../CardProducto/CardProducto.css'
 
 export const CardProducto = (props) => {
   return (

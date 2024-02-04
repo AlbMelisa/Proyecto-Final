@@ -2,7 +2,7 @@ import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
+import '../CardView/CardView.css'
 export const CardView = (props) => {
   return (
     <Container className='p-0 d-flex justify-content-center g-0'>

@@ -1,6 +1,5 @@
 
 import { useState } from 'react'
-import './App.css'
 import PrivateRoute from './Routes/PrivateRoute'
 import { BrowserRouter } from 'react-router-dom'
 import PublicRouter  from './Routes/PublicRouter'

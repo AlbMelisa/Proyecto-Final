@@ -1,4 +1,4 @@
-import CardPlan from '../components/CardPlan/CardPlan'
+import CardPlan from '../../components/CardPlan/CardPlan'
 
 const Plan = () => {
   return (
