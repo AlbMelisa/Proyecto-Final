@@ -14,7 +14,7 @@ export const CardView = (props) => {
           </Card.Text>
         </Card.Body>
         <div className="text-center">
-          <Button className='buttonView mb-3'><Link to='/PlanUno' className='text-decoration-none'>ACCEDER AHORA</Link></Button>
+          <Button className='buttonView mb-3'><Link to={{ pathname: '/Plan', state: {plan: props.plan, nombre: props.nombre } }} className='text-decoration-none'>ACCEDER AHORA</Link></Button>
         </div>
       </Card>
 

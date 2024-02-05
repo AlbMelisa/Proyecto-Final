@@ -12,8 +12,9 @@ import { useForm } from "react-hook-form";
 import { API_URL } from "../../utils/constant.js";
 import Swal from "sweetalert2";
 import '../CardPlan/CardPlan.css'
+import emailjs from 'emailjs-com';
 
-const CardPlan = () => {
+const CardPlan = (props) => {
   const {
     register,
     handleSubmit,
@@ -25,18 +26,31 @@ const CardPlan = () => {
     console.log(data);
 
     const fullData = { ...data, role: "client" };
+    const EMAILJS_USER_ID = 'D0tzFr3sUlNzTuqeA'; // Reemplaza con tu User ID
+    const EMAILJS_SERVICE_ID = 'service_vw1f6aj'; // Reemplaza con tu Service ID
+    const EMAILJS_TEMPLATE_ID = 'template_3a3tezc'; // Reemplaza con tu Template ID
+
     try {
-      const response = await fetch(`${API_URL}planUno`, {
+      const response = await fetch(`${API_URL}plan`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify(fullData),
       });
+      const emailData = {
+        to_email: data.email, // Reemplaza con la dirección de correo a la que deseas enviar
+        to_name: data.nombre,
+        subject: 'Nuevo plan creado',
+        message: 'Estamos emocionados de darte la bienvenida a nuestra comunidad de entusiastas del fitness. ¡Felicidades por dar el primer paso hacia una vida más saludable y activa!',
+        messageDos: 'Nuestro equipo de entrenadores y personal está aquí para apoyarte en cada paso del camino. Si tienes alguna pregunta, no dudes en acercarte a nosotros. Además, echa un vistazo a nuestras clases, programas y equipos de vanguardia que harán que cada visita sea emocionante y efectiva.',
+      };
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailData, EMAILJS_USER_ID);
+
       //const responseData = await response.json()
       reset();
       Swal.fire({
-        title: "Se creo tu plan!",
-        text: "¡Felicitaciones!",
+        title: "Felicidades!",
+        text: "Su correo fue enviado con exito.",
         icon: "success",
       });
     } catch (err) {
@@ -55,7 +69,7 @@ const CardPlan = () => {
           vos.
         </h3>
       </div>
-      <div className="d-flex justify-content-center ">
+      <div className="d-flex justify-content-center m-2 ">
         <Card className="cardPlan col-xl-8 col-md-9 col-10  text-light border border-0">
           <Row className=" m-0">
             <Col md="auto" className="p-0 m-0">
@@ -69,7 +83,7 @@ const CardPlan = () => {
             <Col className="mb-3 p-0">
               <Row className="m-0">
                 <Col>
-                  <h2 className="m-2 fst-italic">PLAN #1 </h2>
+                  <h2 className="m-2 fst-italic">PLAN #{props.plan} </h2>
                 </Col>
                 <Col className="m-0 p-0">
                   <div className="d-flex justify-content-end p-0 m-0">

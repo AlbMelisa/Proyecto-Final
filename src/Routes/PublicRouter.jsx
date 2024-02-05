@@ -16,7 +16,7 @@ const PublicRouter = () => {
       <Routes>
         <Route path='/' element={<Navigate to={'/home'}/>}/>
         <Route path='/Home' element={<Home/>} />
-        <Route path='/PlanUno' element={<Plan/>}/>
+        <Route path='/Plan' element={<Plan/>}/>
         <Route path='/Registro' element={<Registro/>}/>
 
         <Route path='/Plan/:id' element={<div>ekmre</div>}/>
