@@ -1,32 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Card,
-  Image,
-} from "react-bootstrap";
+import {Container, Row,Col, Form,Button,Card, Image,} from "react-bootstrap";
 import "../Register/RegisterComponent.css";
 import logo from "../../images/LogoGymAgeCompleto.png";
-const RegisterComponents = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+import { API_URL } from "../../utils/constant.js";
 
-  const onSubmit = (data) => {
+import Swal from "sweetalert2";
+
+const RegisterComponents = () => {
+  const {register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const [aceptoTerminos, setAceptoTerminos] = useState(false);
+
+  const onSubmit = async (data) => {
     try {
-        console.log(data);
-        
+        const fullData = {...data, role:'user'}
+        const response = await fetch(`${API_URL}user`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(fullData),
+      });
+      reset();
+
+      Swal.fire({
+        title: "Felicidades!",
+        text: "Su correo fue enviado con exito.",
+        icon: "success",
+      });
     } catch (error) {
-        
+      Swal.fire({
+        title: "¡Hubo un error Inesperado!",
+        icon: "error",
+      });
     }
-    // EN VEZ DEL CONSOLE LOG TENGO QUE HACER EL FETCH Y MANDARLO A LA BASE DE DATOS
+  };
+  const handleAceptoTerminosChange = () => {
+    setAceptoTerminos(!aceptoTerminos);
   };
 
   return (
@@ -47,10 +57,12 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="text"
                   placeholder="Ingrese su nombre.."
-                  {...register("firstName", {
+                  minLength={3}
+                  maxLength={50}
+                  {...register("nombre", {
                     required: "Este campo es obligatorio",
                   })}
-                  isInvalid={!!errors.firstName}
+                  isInvalid={!!errors.nombre}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.firstName?.message}
@@ -62,10 +74,12 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="text"
                   placeholder="Ingrese su apellido.."
-                  {...register("lastName", {
+                  minLength={3}
+                  maxLength={60}
+                  {...register("apellido", {
                     required: "Este campo es obligatorio",
                   })}
-                  isInvalid={!!errors.lastName}
+                  isInvalid={!!errors.apellido}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.lastName?.message}
@@ -77,6 +91,8 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="email"
                   placeholder="Ingrese su email.."
+                  minLength={12}
+                  maxLength={46}
                   {...register("email", {
                     required: "Este campo es obligatorio",
                   })}
@@ -92,10 +108,12 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="password"
                   placeholder="Ingrese su contraseña.."
-                  {...register("password", {
+                  minLength={8}
+                  maxLength={30}
+                  {...register("clave", {
                     required: "Este campo es obligatorio",
                   })}
-                  isInvalid={!!errors.password}
+                  isInvalid={!!errors.clave}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.password?.message}
@@ -107,6 +125,8 @@ const RegisterComponents = () => {
                   id="custom-switch"
                   label="Acepto términos y condiciones"
                   className="text-light text-center mt-2"
+                  checked={aceptoTerminos}
+                  onChange={handleAceptoTerminosChange}
                 />
               </Form>
               <div className="d-flex  flex-column m-2 ">
