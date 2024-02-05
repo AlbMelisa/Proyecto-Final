@@ -17,15 +17,15 @@ const LoginComponent = () => {
     }
   
   return (
-    <div className="d-flex justify-content-center align-items-center mt-3  ">
+    <div className="d-flex justify-content-center align-items-center m-5  ">
     <Card className="p-3 ConteinerCard">
       <Row>
         <Col>
-          <h1 className="text-center color fw-bold">GYMAGE</h1>
-          <h2 className='fst-italic fw-bolder color'>WELCOME BACK!!</h2>
+          <h1 className="text-center letter fw-bold">GYMAGE</h1>
+          <h2 className='fst-italic fw-bolder letter'>WELCOME BACK!!</h2>
           <Form className="text-center" onSubmit={handleSubmit((data) => onSubmit(data))}>
             <Form.Group>
-              <Form.Label className="mt-2 color">E-MAIL</Form.Label>
+              <Form.Label className="mt-2 letter">E-MAIL</Form.Label>
               <Form.Control 
               type="email" 
               placeholder="Ingrese su e-mail.."
@@ -36,7 +36,7 @@ const LoginComponent = () => {
                 required: "Este campo es obligatorio",
               })}
               isInvalid={!!errors.email}/>
-              <Form.Label className="mt-2 color">CONTRASEÑA</Form.Label>
+              <Form.Label className="mt-2 letter">CONTRASEÑA</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Ingrese su contraseña.."
@@ -53,8 +53,8 @@ const LoginComponent = () => {
               INGRESAR
             </Button>
           </Form>
-          <h5 className='fst-italic text-center color'>¿Olviaste tu contraseña?</h5>
-          <h4 className='text-center color'>INICIAR SESIÓN CON:</h4>
+          <h5 className='fst-italic text-center letter'>¿Olviaste tu contraseña?</h5>
+          <h4 className='text-center letter'>INICIAR SESIÓN CON:</h4>
         </Col>
       </Row>
     </Card>

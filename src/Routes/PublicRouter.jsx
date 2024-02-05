@@ -1,13 +1,14 @@
 import {BrowserRouter,
 Routes,Route,Navigate} from 'react-router-dom'
 
-import Home from '../pages/Home'
-import Plan from '../pages/plan'
-import Contacto from '../pages/Contacto'
-import Error404 from '../pages/Error404'
-import Login from '../pages/Login'
 import RegisterComponents from '../components/Register/RegisterComponent'
-import Registro from '../pages/Registro'
+
+import Contacto from '../pages/Contacto/Contacto'
+import Home from '../pages/Home/Home'
+import Plan from '../pages/Plan/Plan'
+import Registro from '../pages/Registro/Registro'
+import Error404 from '../pages/Error404/Error404'
+import Login from '../pages/Login/Login'
 
 const PublicRouter = () => {
   return (
@@ -15,7 +16,7 @@ const PublicRouter = () => {
       <Routes>
         <Route path='/' element={<Navigate to={'/home'}/>}/>
         <Route path='/Home' element={<Home/>} />
-        <Route path='/PlanUno' element={<Plan/>}/>
+        <Route path='/Plan' element={<Plan/>}/>
         <Route path='/Registro' element={<Registro/>}/>
 
         <Route path='/Plan/:id' element={<div>ekmre</div>}/>

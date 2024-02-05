@@ -26,14 +26,14 @@ const NavbarComponent = () => {
             navbarScroll
           >
             <Nav.Link href="/PlanUno" className=' mx-2 text-light fs-5'>Clases</Nav.Link>
-            <Nav.Link href="/Contacto" className='text-light mx-2 fs-5'>Contacto</Nav.Link>
+            <Nav.Link href="/Contacto" className='text-light mx-2 fs-5'></Nav.Link>
             
           </Nav>
           <Form className="d-flex">
-          <Button className='mt-3 mx-1 buttonStyle'><Link to='/login'>Iniciar Sesion</Link></Button> 
+          <Button className='mt-3 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-light'>Iniciar Sesion</Link></Button> 
           </Form>
           <Form className="d-flex">
-          <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro'>Registrarse</Link></Button> 
+          <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-light'>Registrarse</Link></Button> 
           </Form>
         </Navbar.Collapse>
       </Container>

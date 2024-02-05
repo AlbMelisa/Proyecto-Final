@@ -1,36 +1,41 @@
-import '../Clima/clima.css'
-import { Col, Container, Row } from 'react-bootstrap'
-import Swal from 'sweetalert2';
+import "../Clima/clima.css";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
 
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
-const apiKey = 'f35fbee7016ebf01be550a19df80e230';
-const city = 'tucuman';
-
-const apiUrlWithParams = `${apiUrl}?q=${city}&lat=-26.80&lon=-65.21&appid=${apiKey}`;
-
-const clima = fetch(apiUrlWithParams)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  })
-  .then(data => {
-    console.log(data);
-    // Aquí puedes manejar los datos de la respuesta de la API
-  })
-  .catch(error => {
-    Swal.fire({
-      title: "¡Hubo un error Inesperado!",
-      icon: "error"
-    });
-  });
+import React, { useEffect, useState } from "react";
 
 const Clima = () => {
+  const [climaData, setClimaData] = useState(null);
+
+  useEffect(() => {
+    const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
+    const apiKey = "f35fbee7016ebf01be550a19df80e230";
+    const city = "tucuman";
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `${apiUrl}?q=${city}&lat=-26.80&lon=-65.21&appid=${apiKey}`
+        );
+        if (!response.ok) {
+          throw new Error(response.status);
+        }
+        const data = await response.json();
+        setClimaData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error al obtener datos de la API", error);
+        // Puedes manejar el error aquí si es necesario
+      }
+    };
+
+    fetchData();
+  }, []); // El segundo parámetro [] asegura que useEffect se ejecute solo una vez, similar a componentDidMount
+
   return (
-    <Container className=' m-0'>
-      <Row className='p-0'>
-        <Col>
+    <div className="m-0">
+      <Row className="p-0 g-0">
+      <Col className="">
           <h1 className='m-3 text-center text-dark'>Horarios</h1>
           <Row className='text-center g-0 p-0'>
             <Col className='text-dark'>
@@ -43,12 +48,25 @@ const Clima = () => {
             </Col>
           </Row>
         </Col>
-        <Col className='p-0 text-dark'>
-          <h1>horarios</h1>
+        <Col className="p-0 text-dark ">
+        <h3 className="text-center m-3">Clima en {climaData?.name}</h3>
+        {climaData && (
+          <div className="d-flex justify-content-center">
+            <Image
+              src={`https://openweathermap.org/img/wn/${climaData.weather[0].icon}@2x.png`}
+            />
+          </div>
+        )}
+        {climaData && (
+          <>
+            <h3 className="text-center">{(climaData.main.temp - 273.15).toFixed(2)}°C</h3>
+           
+          </>
+        )}
         </Col>
       </Row>
-    </Container>
-  )
-}
+    </div>
+  );
+};
 
-export default Clima
+export default Clima;

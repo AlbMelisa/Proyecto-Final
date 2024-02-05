@@ -1,9 +1,13 @@
 import React from 'react'
 import { Button, Image } from 'react-bootstrap'
-
+import imagen from '../../images/imagenPP.jpg'
+import '../ImagenPrincipal/ImagenPrincipal.css'
 const ImagenPrincipal = () => {
   return (
-    <Image src="https://findmotivation.org/wp-content/uploads/Best-Willpower-Quotes-to-grow-your-inner-strength.jpg" fluid />
+    <div className='d-flex justify-content-center'>
+    <Image src={imagen} fluid />
+  </div>
+
     
   )
 }
