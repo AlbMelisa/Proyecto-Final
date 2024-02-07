@@ -9,10 +9,27 @@ const ProductosP = () => {
 
   const getProductos = async () => {
     try {
-      const response = await fetch('http://localhost:4000/productos')
+      const response = await fetch('http://localhost:4000/productos',{
+        method: 'GET',
+        headers: { "Content-Type": "application/json" },
+        credentials:i= 'include'
+      })
+     if(response.status !== 200){
       const data = await response.json()
       setProductos(data)
-      console.log(typeof data)
+      localStorage.clear()
+      setUser({
+        token: null,
+        userInfo: null,
+        isLogged:false
+      })
+      return
+     }
+     if(response.status === 200){
+      const data = await response.json()
+      setProductos(data)
+      console.log(data)
+     }
       
     } catch (error) {
       console.log(error)
@@ -24,7 +41,6 @@ const ProductosP = () => {
   },[])
   
   return (
-    
     <>
     </>
     

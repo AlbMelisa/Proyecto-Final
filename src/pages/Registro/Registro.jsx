@@ -6,9 +6,7 @@ import FooterComponent from '../../components/Footer/FooterComponent'
 const Registro = () => {
   return (
     <div className='registroStyle'>
-      <NavbarComponent/>
       <RegisterComponents/>
-      <FooterComponent/>
     </div>
   )
 }
