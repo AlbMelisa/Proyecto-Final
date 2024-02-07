@@ -37,7 +37,7 @@ const LoginComponent = ({setUser}) => {
 
     if(response.status === 200){
       const responseData = await response.json()
-      
+      const decoded = jwtDecode(responseData.accessToken)
       localStorage.setItem('token',responseData.accessToken)
       localStorage.setItem('isUserLogged',true)
 

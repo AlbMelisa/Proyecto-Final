@@ -12,21 +12,21 @@ import FooterComponent from '../components/Footer/FooterComponent'
 const PublicRouter = ({isLogged ,setUser}) => {
   return (
     <>
-    <BrowserRouter>
-      <NavbarComponent isLogged={isLogged }/>
-        <Routes>
-          <Route path='/' element={<Navigate to={'/home'}/>}/>
-          <Route path='/Home' element={<Home/>} />
-          <Route path='/Plan' element={<Plan/>}/>
-          <Route path='/Registro' element={<Registro/>}/>
+      <BrowserRouter>
+        <NavbarComponent isLogged={isLogged }/>
+          <Routes>
+            <Route path='/' element={<Navigate to={'/home'}/>}/>
+            <Route path='/Home' element={<Home setUSer={setUser}/>} />
+            <Route path='/Plan' element={<Plan/>}/>
+            <Route path='/Registro' element={<Registro/>}/>
 
-          <Route path='/Contacto' element={<Contacto/>}/>
-          <Route path='/Error404' element={<Error404/>}/>
-          <Route path='/login' element={<LoginComponent setUser={setUser}/>}/>
-          <Route path='*' element={<Navigate to={'/'}/>}/>
-        </Routes>
-        <FooterComponent />
-    </BrowserRouter>
+            <Route path='/Contacto' element={<Contacto/>}/>
+            <Route path='/Error404' element={<Error404/>}/>
+            <Route path='/login' element={<LoginComponent setUser={setUser}/>}/>
+            <Route path='*' element={<Navigate to={'/'}/>}/>
+          </Routes>
+          <FooterComponent />
+      </BrowserRouter>
     </>
   )
 }

@@ -9,6 +9,7 @@ import FooterComponent from './components/Footer/FooterComponent'
 
 function App() {
 
+  const [loading,setLoading] = useState(true)
   const [user , setUser] = useState({ token:null, userInfo:null, isLogged:false})
   const isUserLogged = localStorage.getItem('isUserLogged')
 
@@ -21,26 +22,34 @@ function App() {
         userInfo:decoded,
         isLogged:true
       })
+      setLoading(false)
     }else{
+      setLoading(false)
       return
     }
   }
   useEffect(()=>{
     checkIfUserLogged()
   },[])
+  
   return (
     <>
     {
-      !user.isLogged ?
-      <PublicRouter isLogged={user.isLogged} setUser={setUser}/>
+      loading ?
+      <div>Cargando</div>
       :
-      <BrowserRouter>
-        {<NavbarComponent isLogged={user.isLogged} setUser={setUser}/>}
-          <PrivateRoute/>
-        {<FooterComponent/>}
-      </BrowserRouter>
+          !user.isLogged ?
+          <PublicRouter isLogged={user.isLogged} setUser={setUser}/>
+          :
+          <BrowserRouter>
+            <NavbarComponent isLogged={user.isLogged} setUser={setUser}/>
+              <PrivateRoute setUser={setUser}/>
+            <FooterComponent/>
+          </BrowserRouter>
+        
     }
-</>
+    
+  </>
   )
 }
 
