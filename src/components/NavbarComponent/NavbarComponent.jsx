@@ -10,7 +10,11 @@ import "../NavbarComponent/NavbarComponent.css"
 
 
 
-const NavbarComponent = () => {
+const NavbarComponent = ({isLogged}) => {
+  const handleLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
   return (
     <Navbar expand="lg" className="navbarStyle ">
       <Container fluid>
@@ -29,12 +33,17 @@ const NavbarComponent = () => {
             <Nav.Link href="/Contacto" className='text-light mx-2 fs-5'></Nav.Link>
             
           </Nav>
-          <Form className="d-flex">
-          <Button className='mt-3 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-light'>Iniciar Sesion</Link></Button> 
-          </Form>
-          <Form className="d-flex">
-          <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-light'>Registrarse</Link></Button> 
-          </Form>
+            {
+              isLogged ? (
+                <Button className='mt-3 mx-1 buttonStyle' onClick={handleLogout}><Link to='/home' className='text-decoration-none text-light'>Cerrar Sesión</Link></Button> 
+                ):(
+                  <Form className="d-flex">
+                    <Button className='mt-3 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-light'>Iniciar Sesión</Link></Button> 
+                    <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-light'>Registrarse</Link></Button> 
+                  </Form>
+                 
+                ) 
+            }
         </Navbar.Collapse>
       </Container>
     </Navbar>

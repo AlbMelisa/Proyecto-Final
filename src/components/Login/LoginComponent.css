@@ -3,6 +3,9 @@
   background-color: aquamarine;
   border-radius: 20px;
 }
+.backColor{
+  background-color: #302D2D;
+}
 .letter{
   color: white;
   border-color: white;

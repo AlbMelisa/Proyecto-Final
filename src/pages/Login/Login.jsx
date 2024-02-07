@@ -2,12 +2,10 @@ import FooterComponent from '../../components/Footer/FooterComponent'
 import LoginComponent from '../../components/Login/LoginComponent'
 import NavbarComponent from '../../components/NavbarComponent/NavbarComponent'
 import '../Login/Login.css'
-const Login = () => {
+const Login = ({User}) => {
   return (
-    <div className='backColor'>
-    <NavbarComponent/>
-    <LoginComponent/>
-    <FooterComponent/>
+    <div >
+      <LoginComponent user={User} />
     </div>
   )
 }

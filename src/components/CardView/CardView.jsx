@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import '../CardView/CardView.css'
+
 export const CardView = (props) => {
   return (
     <Container className='p-0 d-flex justify-content-center g-0'>
@@ -14,7 +15,7 @@ export const CardView = (props) => {
           </Card.Text>
         </Card.Body>
         <div className="text-center">
-          <Button className='buttonView mb-3'><Link to={{ pathname: '/Plan', state: {plan: props.plan, nombre: props.nombre } }} className='text-decoration-none'>ACCEDER AHORA</Link></Button>
+          <Button className='buttonView mb-3'><Link to={{ pathname: '/Plan', state: {plan: props.plan, nombre: props.nombre } }} className='text-decoration-none text-light'>ACCEDER AHORA</Link></Button>
         </div>
       </Card>
 

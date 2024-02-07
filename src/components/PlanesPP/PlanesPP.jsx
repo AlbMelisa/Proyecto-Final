@@ -15,7 +15,7 @@ export const PlanesPP = () => {
         <CardView plan={'2'} nombre={'Clases'}descripcion={'Mantén un estilo de vida saludable junto a nuestras clases para mantener tu peso ideal'}/>
       </Col>
       <Col className='m-2 d-flex justify-content-center '>
-        <CardView plan={'3'} nombre={'Full'}descripcion={'Cambia tu estilo de vida junto a nuestras clases y nuestro salon de musculación.'}/>      
+        <CardView plan={'3'} nombre={'Full'} descripcion={'Cambia tu estilo de vida junto a nuestras clases y nuestro salon de musculación.'}/>      
       </Col>
   </Row>
 

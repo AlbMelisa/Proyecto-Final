@@ -10,11 +10,11 @@
 }
 .buttonStyle{
  background-color: #141414;
-  border-radius: 20px;
+  border-radius: 15px;
   cursor: pointer;
-  border: none;
   padding: 10px 15px;
   font-size: 18px;
+  border-color: #62D8EA ;
 }
 .buttonStyle:hover{
   background-color: #62D8EA;

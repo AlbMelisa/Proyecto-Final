@@ -3,7 +3,7 @@
   width: 13rem;
   height: 275px;
   background-color: #302D2D;
-  border-radius: 20px;
+  border-radius: 15px;
   filter: brightness(0.9);
   opacity: 0.9;
 }
@@ -33,5 +33,5 @@
   opacity: 0.8;
   font-family: 'Honk', system-ui;
   font-family: 'Roboto Mono', monospace;
-  border-radius: 20px;
+  border-radius: 15px;
 }

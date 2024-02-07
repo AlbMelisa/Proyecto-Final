@@ -20,7 +20,7 @@ import { Link } from "react-router-dom";
 const FooterComponent = () => {
   return (
     <>
-      <Navbar className="footer-navbar" fixed="bottom">
+      <Navbar className="footer-navbar " fixed="bottom">
         <Container id="footer-container" className="footer-container">
           <Row className="w-100 my-3 ">
             <Col sm={12} md={4} className="logo-col my-2">

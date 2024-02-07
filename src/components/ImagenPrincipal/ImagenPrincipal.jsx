@@ -5,8 +5,8 @@ import '../ImagenPrincipal/ImagenPrincipal.css'
 const ImagenPrincipal = () => {
   return (
     <div className='d-flex justify-content-center'>
-    <Image src={imagen} fluid />
-  </div>
+      <Image src={imagen} fluid />
+     </div>
 
     
   )
