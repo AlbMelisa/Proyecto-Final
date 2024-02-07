@@ -1,50 +1,53 @@
 import { useEffect, useState } from "react"
-import { Table } from "react-bootstrap"
+import { Card, Col, Table } from "react-bootstrap"
 
-const Grilla = () => {
-  const [user,setUSer] = useState([])
-
-    const getProductos = async() => {
-      try {
-        const response = await fetch('',{
-          method: 'GET',
-          headers: { "Content-Type": "application/json" },
-          credentials: 'include' // Corrección aquí
-        })
-        if(response.status === 200){
-          const data = await response.json()
-          setUSer(data)
-          console.log(data)
-        }
-      } catch (error) {
-        console.log(error)
-      }
-    }
-  useEffect(()=>{
-    getProductos()
-  },[])
+const Grilla = ({setUser}) => {
   
+  const [userList, setUserList] = useState([])
+  const token = localStorage.getItem('token');
+
+  const getUser = async () => {
+    const response = await fetch('http://localhost:4000/user', {
+      method: 'GET',
+      headers: {'Authorization': `Bearer ${token}`},
+      credentials: 'include'
+    })
+
+    if(response.status !== 200){
+      const data = await response.json()
+      console.log(data)
+      localStorage.clear()
+      setUser({
+        token: null,
+        userInfo: null,
+        isLogged: false
+      })
+      return
+    }
+
+    if(response.status === 200){
+      const data = await response.json()
+      setUserList(data)
+      console.log(data)
+    }
+  }
+
   return (
     <>
-      <div>
-        <Table>
-          <thead>
-            <tr>
-              <th>Usuario</th>
-              <th>Correo</th>
-              <th>Plan</th>
-            </tr>
-          </thead>
-          {user.map(User => (
-            <tbody>
-              <td></td>
-              <td></td>
-            </tbody>
-        ))}
-        </Table>
-      </div>
+      <ul>
+        {
+          userList.map(element => (
+            <li key={element._id}>{element.nombre}</li>
+          ))
+        }
+      </ul>
+      <button onClick={() => getUser()}>
+        GET USERS
+      </button>
     </>
   )
 }
+
+
 
 export default Grilla
