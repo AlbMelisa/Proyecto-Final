@@ -7,10 +7,29 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import "../NavbarComponent/NavbarComponent.css"
+import { useState } from 'react';
+import { API_URL } from "../../utils/constant.js";
 
 
 
-const NavbarComponent = () => {
+const NavbarComponent = ({isLogged}) => {
+  const [userList, setUserList] = useState([])
+  const token = localStorage.getItem('token');
+
+  const handleLogout = async() => {
+    try {
+      const response = await fetch(`${API_URL}logout`, {
+        method: 'GET',
+        headers: {'Authorization': `Bearer ${token}`},
+        credentials: 'include'
+      });
+      localStorage.clear();
+      window.location.reload();
+    } catch (error) {
+      console.log(error)
+    }
+    
+  };
   return (
     <Navbar expand="lg" className="navbarStyle ">
       <Container fluid>

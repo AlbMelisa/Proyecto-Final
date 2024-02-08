@@ -1,8 +1,9 @@
 import React from 'react'
+import Grilla from '../../components/Grilla/Grilla'
 
-const Admin = () => {
+const Admin = ({setUser}) => {
   return (
-    <div>Admin</div>
+    <div>ennnnnnnnnnn</div>
   )
 }
 
