@@ -14,7 +14,7 @@ import {
 import { MdOutlinePlace } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
 import Image from "react-bootstrap/Image";
-import logo from "../../images/LogoGymAgeCompleto.png";
+import logo from "../../images/LogoGymageCompleto.png";
 import { Link } from "react-router-dom";
 
 const FooterComponent = () => {

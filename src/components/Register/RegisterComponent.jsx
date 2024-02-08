@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {Container, Row,Col, Form,Button,Card, Image,} from "react-bootstrap";
+import { Row,Col, Form,Button,Card, Image,} from "react-bootstrap";
 import "../Register/RegisterComponent.css";
-import logo from "../../images/LogoGymAgeCompleto.png";
+import logo from "../../images/LogoGymageCompleto.png";
 import { API_URL } from "../../utils/constant.js";
 
 import Swal from "sweetalert2";
