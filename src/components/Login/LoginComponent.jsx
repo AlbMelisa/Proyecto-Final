@@ -17,7 +17,7 @@ const LoginComponent = () => {
     }
   
   return (
-    <div className="d-flex justify-content-center align-items-center m-5  ">
+    <div className="d-flex justify-content-center align-items-center m-5 ">
     <Card className="p-3 ConteinerCard">
       <Row>
         <Col>

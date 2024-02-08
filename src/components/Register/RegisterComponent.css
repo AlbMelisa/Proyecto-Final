@@ -12,6 +12,7 @@
   background-color: #BCC8CB;
 }
 .colorForm:focus-visible{
+  background-repeat: no-repeat;
   background-color: #BCC8CB;
   outline: none; 
 

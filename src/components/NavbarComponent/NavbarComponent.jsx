@@ -25,15 +25,16 @@ const NavbarComponent = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/PlanUno" className=' mx-2 text-light fs-5'>Clases</Nav.Link>
-            <Nav.Link href="/Contacto" className='text-light mx-2 fs-5'></Nav.Link>
+            <Nav.Link href="/PlanUno" className=' mx-2 text-black fs-8 buttonStyle mt-2'>Inicio</Nav.Link>
+            <Nav.Link href="/Contacto" className='text-black mx-2 fs-8 buttonStyle mt-2'>Contactanos</Nav.Link>
+            <Nav.Link href="/Contacto" className='text-black mx-2 fs-8 buttonStyle mt-2'>Sobre Nosotros</Nav.Link>
             
           </Nav>
           <Form className="d-flex">
-          <Button className='mt-3 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-light'>Iniciar Sesion</Link></Button> 
+          <Button className='mt-2 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-black'>Iniciar Sesion</Link></Button> 
           </Form>
           <Form className="d-flex">
-          <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-light'>Registrarse</Link></Button> 
+          <Button className='mt-2 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-black'>Registrarse</Link></Button> 
           </Form>
         </Navbar.Collapse>
       </Container>
