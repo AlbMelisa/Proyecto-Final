@@ -1,10 +1,10 @@
 import CardPlan from '../../components/CardPlan/CardPlan'
 import '../Plan/Plan.css'
 
-const Plan = (props) => {
+const Plan = ({isLogged}) => {
   return (
     <div className='backColor'>
-      <CardPlan plan={props.plan}/>
+      <CardPlan isLogged={isLogged}/>
     </div>
   )
 }

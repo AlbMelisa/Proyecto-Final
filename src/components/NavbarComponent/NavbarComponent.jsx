@@ -44,17 +44,19 @@ const NavbarComponent = ({isLogged}) => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/PlanUno" className=' mx-2 text-light fs-5'>Clases</Nav.Link>
-            <Nav.Link href="/Contacto" className='text-light mx-2 fs-5'></Nav.Link>
+            <Nav.Link href="/PlanUno" className=' mx-2 text-black fs-8 buttonStyle mt-2'>Inicio</Nav.Link>
+            <Nav.Link href="/Contacto" className='text-black mx-2 fs-8 buttonStyle mt-2'>Contactanos</Nav.Link>
+            <Nav.Link href="/Contacto" className='text-black mx-2 fs-8 buttonStyle mt-2'>Sobre Nosotros</Nav.Link>
+            
             
           </Nav>
             {
               isLogged ? (
-                <Button className='mt-3 mx-1 buttonStyle' onClick={handleLogout}><Link to='/home' className='text-decoration-none text-light'>Cerrar Sesión</Link></Button> 
+                <Button className='mt-3 mx-1 buttonStyle' onClick={handleLogout}><Link to='/home' className='text-decoration-none text-dark'>Cerrar Sesión</Link></Button> 
                 ):(
                   <Form className="d-flex">
-                    <Button className='mt-3 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-light'>Iniciar Sesión</Link></Button> 
-                    <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-light'>Registrarse</Link></Button> 
+                    <Button className='mt-3 mx-1 buttonStyle'><Link to='/login' className='text-decoration-none text-dark'>Iniciar Sesión</Link></Button> 
+                    <Button className='mt-3 mx-1 buttonStyle'><Link to='/Registro' className='text-decoration-none text-dark'>Registrarse</Link></Button> 
                   </Form>
                  
                 ) 

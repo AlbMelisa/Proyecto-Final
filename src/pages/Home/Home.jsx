@@ -15,7 +15,7 @@ import Grilla from '../../components/Grilla/Grilla';
 const Home = ({setUSer}) => {
   
   return (
-    <div className=' color'>
+    <div className='d-flex flex-column color'>
       <ImagenPrincipal/>
       <Clima/>
       <PlanesPP/>
