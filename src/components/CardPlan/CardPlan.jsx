@@ -62,7 +62,7 @@ const CardPlan = (props) => {
   };
 
   return (
-    <div>
+    <div >
       <div className="d-flex justify-content-center m-2">
         <h3 className="letterType text-center text-light">
           Completa el siguiente cuestionario y nos pondremos en contacto con

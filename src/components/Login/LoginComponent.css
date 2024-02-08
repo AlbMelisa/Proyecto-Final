@@ -11,6 +11,9 @@
   transform:translateY(-10px);
 
 }
+.backColor{
+  background-color: #302D2D;
+}
 .letter{
   color: white;
   border-color: white;

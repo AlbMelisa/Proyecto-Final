@@ -6,16 +6,47 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import { Button } from 'react-bootstrap'
 import { useForm } from "react-hook-form";
+import { API_URL } from "../../utils/constant.js";
+import {jwtDecode} from 'jwt-decode'
 
-const LoginComponent = () => {
+const LoginComponent = ({setUser}) => {
   const {register, handleSubmit,formState: { errors },reset} = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
-
+    const response = await fetch(`${API_URL}login`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify(data)
+    })
     
+    
+  if (response.status === 400) {
+    const responseData = await response.json();
+    // Muestra el mensaje de error al usuario
+    alert(responseData.message);
+    return;
+  }
+
+  if (response.status === 401) {
+    const responseData = await response.json();
+    // Muestra el mensaje de error al usuario
+    alert(responseData.message);
+    return;
+  }
+
+    if(response.status === 200){
+      const responseData = await response.json()
+      
+      localStorage.setItem('token',responseData.accessToken)
+      localStorage.setItem('isUserLogged',true)
+
+      window.location.reload()
+     
     }
-  
+    reset()
+  }
+
   return (
     <div className="d-flex justify-content-center align-items-center m-5 ">
     <Card className="p-3 ConteinerCard">
@@ -42,11 +73,11 @@ const LoginComponent = () => {
                 placeholder="Ingrese su contraseña.."
                 className='colorForm'
                 maxLength={60}
-                minLength={11}
-                {...register("password", {
+                minLength={8}
+                {...register("clave", {
                   required: "Este campo es obligatorio",
                 })}
-                isInvalid={!!errors.password}
+                isInvalid={!!errors.clave}
               />
             </Form.Group>
             <Button type="submit" className="text-center m-2 buttonStyle">
@@ -59,7 +90,8 @@ const LoginComponent = () => {
       </Row>
     </Card>
   </div>
-  )
+
+ )
 }
 
 export default LoginComponent

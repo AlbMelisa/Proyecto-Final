@@ -25,9 +25,9 @@ const NavbarComponent = () => {
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <Nav.Link href="/PlanUno" className=' mx-2 text-black fs-8 buttonStyle mt-2'>Inicio</Nav.Link>
-            <Nav.Link href="/Contacto" className='text-black mx-2 fs-8 buttonStyle mt-2'>Contactanos</Nav.Link>
-            <Nav.Link href="/Contacto" className='text-black mx-2 fs-8 buttonStyle mt-2'>Sobre Nosotros</Nav.Link>
+            <Nav.Link href="/PlanUno" className='   mx-2 text-black fs-8 buttonStyle mt-2'>Inicio</Nav.Link>
+            <Nav.Link href="/Contacto" className='  text-black mx-2 fs-8 buttonStyle mt-2'>Contactanos</Nav.Link>
+            <Nav.Link href="/Contacto" className='  text-black mx-2 fs-8 buttonStyle mt-2'>Sobre Nosotros</Nav.Link>
             
           </Nav>
           <Form className="d-flex">

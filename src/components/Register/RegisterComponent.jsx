@@ -6,6 +6,7 @@ import logo from "../../images/LogoGymAgeCompleto.png";
 import { API_URL } from "../../utils/constant.js";
 
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const RegisterComponents = () => {
   const {register, handleSubmit, formState: { errors }, reset } = useForm();
@@ -21,11 +22,10 @@ const RegisterComponents = () => {
         credentials: "include",
         body: JSON.stringify(fullData),
       });
-      reset();
-
+      
       Swal.fire({
         title: "Felicidades!",
-        text: "Su correo fue enviado con exito.",
+        text: "Su cuenta fue enviado con exito.",
         icon: "success",
       });
     } catch (error) {
@@ -34,14 +34,15 @@ const RegisterComponents = () => {
         icon: "error",
       });
     }
+    reset();
   };
   const handleAceptoTerminosChange = () => {
     setAceptoTerminos(!aceptoTerminos);
   };
 
   return (
-    <div className="d-flex justify-content-center m-3">
-      <Card className="styleCard">
+    <div className="d-flex justify-content-center ">
+      <Card className="styleCard m-2">
         <Row>
           <Col className="d-flex justify-content-center flex-column">
             <h1 className="text-center text-light">REGISTRATE</h1>
@@ -133,7 +134,7 @@ const RegisterComponents = () => {
                 <Button className=" buttonStyle text-center" type="submit">
                   Registrarse
                 </Button>
-                <h4 className="text-light text-center">¿Ya tenes cuenta?</h4>
+                <h4 className="text-light text-center"><Link to='/login' className="text-decoration-none text-light">¿Ya tenes cuenta?</Link></h4>
               </div>
             </Form>
           </Col>
