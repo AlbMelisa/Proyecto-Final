@@ -17,7 +17,7 @@ const PublicRouter = ({isLogged ,setUser}) => {
           <Routes>
             <Route path='/' element={<Navigate to={'/home'}/>}/>
             <Route path='/Home' element={<Home setUSer={setUser}/>} />
-            <Route path='/Plan' element={<Plan/>}/>
+            <Route path='/Plan' element={<Plan isLogged={isLogged}/>}/>
             <Route path='/Registro' element={<Registro/>}/>
 
             <Route path='/Contacto' element={<Contacto/>}/>

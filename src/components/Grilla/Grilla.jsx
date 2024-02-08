@@ -32,18 +32,38 @@ const Grilla = ({setUser}) => {
     }
   }
 
+  const deleteUser = async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:4000/user/${userId}`, {
+        method: 'DELETE',
+        headers: { 'Authorization': `Bearer ${token}` },
+        credentials: 'include'
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        console.log(data);
+        return;
+      }
+
+      setUserList(prevList => prevList.filter(user => user._id !== userId));
+      console.log('User deleted successfully');
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
+
   return (
     <>
-      <ul>
-        {
-          userList.map(element => (
-            <li key={element._id}>{element.nombre}</li>
-          ))
-        }
+     <ul>
+        {userList.map(element => (
+          <li key={element._id}>
+            {element.nombre}
+            <button onClick={() => deleteUser(element._id)}>Eliminar</button>
+          </li>
+        ))}
       </ul>
-      <button onClick={() => getUser()}>
-        GET USERS
-      </button>
+      <button onClick={() => getUser()}>Obtener Usuarios</button>
     </>
   )
 }

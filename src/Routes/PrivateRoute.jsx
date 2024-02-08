@@ -15,8 +15,9 @@ const PrivateRoute = ({setUser}) => {
     <>
     <div>private</div>
     <Routes>
-     <Route exact path='/admin' element={<Admin setUser={setUser}/>} />
-      <Route exact path='/nueva' element={<Grilla setUser={setUser}/>}/>
+      <Route path='/' element={<Navigate to={'/home'}/>}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route exact path='/admin' element={<Admin setUser={setUser}/>} />
       <Route exact path='/Plan' element={<Plan/>}/>
       <Route exact path='/Error404' element={<Error404/>}/>
       <Route path='/' element={<Navigate to={'/admin'}/>}/>

@@ -3,7 +3,7 @@ import Grilla from '../../components/Grilla/Grilla'
 
 const Admin = ({setUser}) => {
   return (
-    <div>ennnnnnnnnnn</div>
+    <Grilla/>
   )
 }
 

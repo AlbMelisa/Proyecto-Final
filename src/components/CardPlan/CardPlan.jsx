@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 import '../CardPlan/CardPlan.css'
 import emailjs from 'emailjs-com';
 
-const CardPlan = (props) => {
+const CardPlan = ({isLogged}) => {
   const {
     register,
     handleSubmit,
@@ -60,17 +60,23 @@ const CardPlan = (props) => {
       });
     }
   };
-
+  const logFalse = () =>{
+    Swal.fire({
+      title: "Error!",
+      text: "Para poder acceder a un plan necesitas Iniciar Sesión.",
+      icon: "error",
+    });
+  }
   return (
     <div >
       <div className="d-flex justify-content-center m-2">
-        <h3 className="letterType text-center text-light">
+        <h3 className="letterType text-center text-dark">
           Completa el siguiente cuestionario y nos pondremos en contacto con
           vos.
         </h3>
       </div>
       <div className="d-flex justify-content-center m-2 ">
-        <Card className="cardPlan col-xl-8 col-md-9 col-10  text-light border border-0">
+        <Card className="cardPlan col-xl-8 col-md-9 col-10  text-dark border border-0">
           <Row className=" m-0">
             <Col md="auto" className="p-0 m-0">
               <div className="d-flex justify-content-center  m-0">
@@ -83,7 +89,7 @@ const CardPlan = (props) => {
             <Col className="mb-3 p-0">
               <Row className="m-0">
                 <Col>
-                  <h2 className="m-2 fst-italic">PLAN #{props.plan} </h2>
+                  <h2 className="m-2 fst-italic">PLAN # </h2>
                 </Col>
                 <Col className="m-0 p-0">
                   <div className="d-flex justify-content-end p-0 m-0">
@@ -223,11 +229,21 @@ const CardPlan = (props) => {
                     </Form.Control.Feedback>
                   </Form.Group>
                 </Row>
-                <div className="d-flex justify-content-end">
-                  <Button className="mt-3 mx-2 buttonStyle" type="submit">
-                    Enviar
-                  </Button>
-                </div>
+                {
+                  isLogged ? (
+                    <div className="d-flex justify-content-end">
+                      <Button className="mt-3 mx-2 buttonStyle" type="submit">
+                        Enviar
+                      </Button>
+                    </div>
+                  ):(
+                    <div className="d-flex justify-content-end">
+                      <Button className="mt-3 mx-2 buttonStyle" type="submit" onClick={logFalse()}>
+                       Enviar
+                      </Button>
+                    </div>
+                  )
+                }
               </Form>
             </Col>
           </Row>
