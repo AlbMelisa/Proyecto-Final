@@ -1,15 +1,3 @@
-body{
-    background: rgb(8,28,34);
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    font-family: 'Open Sans', sans-serif;
-    background-image: url(/src/images/error404.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    backdrop-filter: blur(4px);
-}
 
 .container{
     height: 100%;

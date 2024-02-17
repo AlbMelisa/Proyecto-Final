@@ -14,6 +14,16 @@ const RegisterComponents = () => {
   const [aceptoTerminos, setAceptoTerminos] = useState(false);
 
   const onSubmit = async (data) => {
+    
+    if (!aceptoTerminos) {
+      // Si el usuario no ha aceptado los términos y condiciones, puedes mostrar un mensaje de error
+      Swal.fire({
+        title: "Error",
+        text: "Debes aceptar los términos y condiciones para registrarte.",
+        icon: "error",
+      });
+      return; // Detiene el envío del formulario
+    }
     try {
         const fullData = {...data, role:'user'}
         const response = await fetch(`${API_URL}user`, {
@@ -131,7 +141,7 @@ const RegisterComponents = () => {
                 />
               </Form>
               <div className="d-flex  flex-column m-2 ">
-                <Button className=" buttonStyle text-center" type="submit">
+                <Button className=" buttonStyle text-center text-dark" type="submit">
                   Registrarse
                 </Button>
                 <h4 className="text-light text-center"><Link to='/login' className="text-decoration-none text-light">¿Ya tenes cuenta?</Link></h4>
