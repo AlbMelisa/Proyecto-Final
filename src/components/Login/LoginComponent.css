@@ -2,7 +2,6 @@
 .ConteinerCard{
   background-image: url('/src/images/ImgProyect.png');
   border-radius: 10px;
-  width: 30%;
   box-shadow: 1px 1px 15px 8px #000000;
   transition: all;
   transition-duration: 400ms;
