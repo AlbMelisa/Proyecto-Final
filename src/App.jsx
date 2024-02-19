@@ -6,6 +6,7 @@ import PublicRouter  from './Routes/PublicRouter'
 import { jwtDecode } from 'jwt-decode'
 import NavbarComponent from './components/NavbarComponent/NavbarComponent'
 import FooterComponent from './components/Footer/FooterComponent'
+import './App.css'
 
 function App() {
 

@@ -81,7 +81,7 @@ const LoginComponent = ({setUser}) => {
                 isInvalid={!!errors.clave}
               />
             </Form.Group>
-            <Button type="submit" className="text-center m-2 buttonStyle">
+            <Button type="submit" className="text-center m-2 buttonStyle text-dark">
               INGRESAR
             </Button>
           </Form>

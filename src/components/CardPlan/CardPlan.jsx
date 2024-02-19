@@ -232,13 +232,13 @@ const CardPlan = ({isLogged}) => {
                 {
                   isLogged ? (
                     <div className="d-flex justify-content-end">
-                      <Button className="mt-3 mx-2 buttonStyle" type="submit">
+                      <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit">
                         Enviar
                       </Button>
                     </div>
                   ):(
                     <div className="d-flex justify-content-end">
-                      <Button className="mt-3 mx-2 buttonStyle" type="submit" onClick={logFalse()}>
+                      <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit" onClick={logFalse()}>
                        Enviar
                       </Button>
                     </div>
