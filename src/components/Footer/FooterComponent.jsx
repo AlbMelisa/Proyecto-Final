@@ -86,8 +86,8 @@ const FooterComponent = () => {
                 </Nav.Item>
                 <ul className="list-unstyled info-links">
                   <li>
-                    <a
-                      href="https://www.whatsapp.com"
+                    <Link
+                    to='/contacto'
                       className="text-white font-size-normal"
                     >
                       <FaMobileAlt
@@ -96,10 +96,10 @@ const FooterComponent = () => {
                         href="https://www.whatsapp.com"
                       />{" "}
                       Contacto
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <Link to="nosotros" className="text-white font-size-normal">
+                    <Link to="/sobreNosotros" className="text-white font-size-normal">
                       <FaPeopleGroup size={20} color="white" /> Nosotros
                     </Link>
                   </li>

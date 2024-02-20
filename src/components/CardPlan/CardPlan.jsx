@@ -230,18 +230,18 @@ const CardPlan = ({isLogged}) => {
                   </Form.Group>
                 </Row>
                 {
-                  isLogged ? (
+                  isLogged ? (/*Este se referencia cuando esta loggeado */
                     <div className="d-flex justify-content-end">
                       <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit">
-                        Enviar
-                      </Button>
-                    </div>
-                  ):(
-                    <div className="d-flex justify-content-end">
-                      <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit" onClick={logFalse()}>
                        Enviar
                       </Button>
                     </div>
+                  ):(/*Este se refencia cuando no esta loggeado */
+                    <div className="d-flex justify-content-end">
+                      <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit" onClick={() => logFalse()}>
+                         Enviar
+                      </Button>
+                      </div>
                   )
                 }
               </Form>

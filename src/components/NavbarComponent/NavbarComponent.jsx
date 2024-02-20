@@ -52,12 +52,6 @@ const NavbarComponent = ({ isLogged }) => {
             navbarScroll
           >
             <Nav.Link
-              href="/PlanUno"
-              className=" mx-2 text-black fs-8 buttonStyle mt-2"
-            >
-              Inicio
-            </Nav.Link>
-            <Nav.Link
               href="/Contacto"
               className="text-black mx-2 fs-8 buttonStyle mt-2"
             >
@@ -77,8 +71,8 @@ const NavbarComponent = ({ isLogged }) => {
               </Link>
             </Button>
           ) : (
-            <Form className="d-flex">
-              <Button className="mt-3 mx-1 buttonStyle">
+            <Form className="d-flex justify-content-center">
+              <Button className="mt-3 mx-1 buttonStyle ">
                 <Link to="/login" className="text-decoration-none text-dark">
                   Iniciar Sesión
                 </Link>
