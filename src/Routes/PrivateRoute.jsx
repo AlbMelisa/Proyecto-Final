@@ -10,7 +10,7 @@ import LoginComponent from '../components/Login/LoginComponent'
 import Admin from '../pages/Admin/Admin'
 import Grilla from '../components/Grilla/Grilla'
 
-const PrivateRoute = ({setUser}) => {
+const PrivateRoute = ({setUser, isLogged}) => {
   return (
     <>
     <div>private</div>
@@ -18,8 +18,9 @@ const PrivateRoute = ({setUser}) => {
       <Route path='/' element={<Navigate to={'/home'}/>}/>
       <Route path='/home' element={<Home/>}/>
       <Route exact path='/admin' element={<Admin setUser={setUser}/>} />
-      <Route exact path='/Plan' element={<Plan/>}/>
+      <Route exact path='/Plan' element={<Plan isLogged={isLogged}/>}/>
       <Route exact path='/Error404' element={<Error404/>}/>
+      <Route path='/info' element={<div>hola</div>}/>
       <Route path='/' element={<Navigate to={'/admin'}/>}/>
 
       <Route path='*' element={<Navigate to='/'/>}/> 

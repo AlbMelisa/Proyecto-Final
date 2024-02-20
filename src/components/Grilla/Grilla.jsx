@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Card, Col, Table } from "react-bootstrap"
+import { Button, Card, Col, Table } from "react-bootstrap"
 
 const Grilla = ({setUser}) => {
   
@@ -7,6 +7,7 @@ const Grilla = ({setUser}) => {
   const token = localStorage.getItem('token');
 
   const getUser = async () => {
+  
     const response = await fetch('http://localhost:4000/user', {
       method: 'GET',
       headers: {'Authorization': `Bearer ${token}`},
@@ -55,15 +56,36 @@ const Grilla = ({setUser}) => {
 
   return (
     <>
-     <ul>
-        {userList.map(element => (
-          <li key={element._id}>
-            {element.nombre}
-            <button onClick={() => deleteUser(element._id)}>Eliminar</button>
-          </li>
-        ))}
-      </ul>
-      <button onClick={() => getUser()}>Obtener Usuarios</button>
+     <h1>BIENVENIDOS AL PANEL DE ADMINISTRACION</h1>
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th className="text-center">ID</th>
+            <th className="text-center">USER</th>
+            <th className="text-center">MAIL</th>
+            <th className="text-center">ROLE</th>
+            <th className="text-center">UPGRADE</th>
+            <th className="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {userList.map(element => (
+            <tr key={element._id}>
+              <td>{element._id}</td>
+              <td>{element.nombre}</td>
+              <td>{element.email}</td>
+              <td>{element.role}</td>
+              <td>{/* Agrega la lógica para la actualización aquí */}</td>
+              <td>
+                <Button variant="danger" onClick={() => deleteUser(element._id)}>
+                  Eliminar
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
+      <Button className='m-2' onClick={() => getUser()}>Obtener Usuarios</Button>
     </>
   )
 }

@@ -9,7 +9,7 @@
   transition: all;
   transition-duration: 300ms;
 }
-.cardView:hover{
+.cardVieww:hover{
   height: 275px;
   transform:translateY(-20px);
   background-color: rgb(49, 48, 48);

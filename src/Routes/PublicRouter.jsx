@@ -8,6 +8,7 @@ import Error404 from '../pages/Error404/Error404'
 import LoginComponent from '../components/Login/LoginComponent'
 import NavbarComponent from '../components/NavbarComponent/NavbarComponent'
 import FooterComponent from '../components/Footer/FooterComponent'
+import Admin from '../pages/Admin/Admin'
 
 const PublicRouter = ({isLogged ,setUser}) => {
   return (
@@ -19,7 +20,6 @@ const PublicRouter = ({isLogged ,setUser}) => {
             <Route path='/Home' element={<Home setUSer={setUser}/>} />
             <Route path='/Plan' element={<Plan isLogged={isLogged}/>}/>
             <Route path='/Registro' element={<Registro/>}/>
-
             <Route path='/Contacto' element={<Contacto/>}/>
             <Route path='/Error404' element={<Error404/>}/>
             <Route path='/login' element={<LoginComponent setUser={setUser}/>}/>
