@@ -101,7 +101,6 @@ const Grilla = ({ setUser }) => {
         Obtener Usuarios
       </Button>
 
-      {/* Modal */}
     
     </>
   );
