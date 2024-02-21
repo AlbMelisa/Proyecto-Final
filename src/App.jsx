@@ -44,7 +44,6 @@ function App() {
           :
           <BrowserRouter>
             <NavbarComponent isLogged={user.isLogged} setUser={setUser}/>
-              
               <PrivateRoute setUser={setUser} isLogged={user.isLogged} />
             <FooterComponent/>
           </BrowserRouter>
