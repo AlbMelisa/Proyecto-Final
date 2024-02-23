@@ -12,19 +12,10 @@ import {
 import RegisterComponents from "../Register/RegisterComponent";
 
 const Grilla = ({ setUser }) => {
-  const [selectedUser, setSelectedUser] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+
   const [userList, setUserList] = useState([]);
   const token = localStorage.getItem("token");
 
-  const handleRowClick = (user) => {
-    setSelectedUser(user);
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
-  };
 
   const getUser = async () => {
     const response = await fetch("http://localhost:4000/user", {
