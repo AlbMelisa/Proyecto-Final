@@ -10,6 +10,14 @@ import {
   Row,
 } from "react-bootstrap";
 import RegisterComponents from "../Register/RegisterComponent";
+
+
+const Grilla = ({ setUser }) => {
+
+  const [userList, setUserList] = useState([]);
+  const token = localStorage.getItem("token");
+
+
 import ModalComponent from "../ModalComponent/ModalComponent";
 
 const Grilla = ({ setUser }) => {
@@ -22,6 +30,7 @@ const Grilla = ({ setUser }) => {
     setSelectedUser(User);
     setShowModal(true); // Abrir el modal cuando se hace clic en una fila
   };
+
 
   const getUser = async () => {
     const response = await fetch("http://localhost:4000/user", {
@@ -38,6 +47,7 @@ const Grilla = ({ setUser }) => {
         token: null,
         userInfo: null,
         isLogged: false,
+
       });
       return;
     }
@@ -46,6 +56,33 @@ const Grilla = ({ setUser }) => {
       const data = await response.json();
       setUserList(data);
       console.log(data);
+    }
+  };
+
+  const deleteUser = async (userId) => {
+    try {
+      const response = await fetch("http://localhost:4000/user", {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+        credentials: "include",
+      });
+      return
+      if (!response.ok) {
+        const data = await response.json();
+        console.log(data);
+        return;
+      }
+
+      setUserList((prevList) => prevList.filter((user) => user._id !== userId));
+      console.log("Usuario eliminado exitosamente");
+    } catch (error) {
+      console.error("No se puso eliminar el usuario(front):", error);
+
+    if (response.status === 200) {
+      const data = await response.json();
+      setUserList(data);
+      console.log(data);
+
     }
   };
 
@@ -63,12 +100,20 @@ const Grilla = ({ setUser }) => {
           </tr>
         </thead>
         <tbody>
+          {userList.map((element) => (
+            <tr key={element._id} onClick={() => handleRowClick(element)}>
+              <td className="text-center">{element.nombre}</td>
+              <td className="text-center">{element.apellido}</td>
+              <td className="text-center">{element.email}</td>
+              <td className="text-center">{element.role}</td>
+
           {userList.map((User) => (
             <tr key={User._id} onClick={() => handleRowClick(User)}>
               <td className="text-center">{User.nombre}</td>
               <td className="text-center">{User.apellido}</td>
               <td className="text-center">{User.email}</td>
               <td className="text-center">{User.role}</td>
+
             </tr>
           ))}
         </tbody>
@@ -76,6 +121,9 @@ const Grilla = ({ setUser }) => {
       <Button className="m-2 text-center" onClick={() => getUser()}>
         Obtener Usuarios
       </Button>
+
+
+    
 
       <ModalComponent
         show={showModal}
