@@ -11,10 +11,25 @@ import {
 } from "react-bootstrap";
 import RegisterComponents from "../Register/RegisterComponent";
 
+
 const Grilla = ({ setUser }) => {
 
   const [userList, setUserList] = useState([]);
   const token = localStorage.getItem("token");
+
+
+import ModalComponent from "../ModalComponent/ModalComponent";
+
+const Grilla = ({ setUser }) => {
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [userList, setUserList] = useState([]);
+  const token = localStorage.getItem("token");
+
+  const handleRowClick = (User) => {
+    setSelectedUser(User);
+    setShowModal(true); // Abrir el modal cuando se hace clic en una fila
+  };
 
 
   const getUser = async () => {
@@ -32,6 +47,7 @@ const Grilla = ({ setUser }) => {
         token: null,
         userInfo: null,
         isLogged: false,
+
       });
       return;
     }
@@ -50,7 +66,7 @@ const Grilla = ({ setUser }) => {
         headers: { Authorization: `Bearer ${token}` },
         credentials: "include",
       });
-
+      return
       if (!response.ok) {
         const data = await response.json();
         console.log(data);
@@ -61,6 +77,12 @@ const Grilla = ({ setUser }) => {
       console.log("Usuario eliminado exitosamente");
     } catch (error) {
       console.error("No se puso eliminar el usuario(front):", error);
+
+    if (response.status === 200) {
+      const data = await response.json();
+      setUserList(data);
+      console.log(data);
+
     }
   };
 
@@ -84,6 +106,14 @@ const Grilla = ({ setUser }) => {
               <td className="text-center">{element.apellido}</td>
               <td className="text-center">{element.email}</td>
               <td className="text-center">{element.role}</td>
+
+          {userList.map((User) => (
+            <tr key={User._id} onClick={() => handleRowClick(User)}>
+              <td className="text-center">{User.nombre}</td>
+              <td className="text-center">{User.apellido}</td>
+              <td className="text-center">{User.email}</td>
+              <td className="text-center">{User.role}</td>
+
             </tr>
           ))}
         </tbody>
@@ -92,7 +122,15 @@ const Grilla = ({ setUser }) => {
         Obtener Usuarios
       </Button>
 
+
     
+
+      <ModalComponent
+        show={showModal}
+        handleClose={() => setShowModal(false)}
+        selectedUser={selectedUser}
+        token={token}
+      />      
     </>
   );
 };
