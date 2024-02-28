@@ -20,19 +20,10 @@ const cards = [
     image: image3
   },  {
     id: 3,
-    title: 'Federico ',
+    title: 'Rafael ',
     image: image3
   },
-  {
-   id: 4,
-    title: 'Jose',
-    image: image3
-  },
-  {
-    id: 5,
-    title: 'Ro ',
-    image: image3
-  },
+  
   
 
 ]
