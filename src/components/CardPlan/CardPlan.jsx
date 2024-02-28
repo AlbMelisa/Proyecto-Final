@@ -27,7 +27,6 @@ const CardPlan = ({isLogged,nombre}) => {
   const onSubmit = async (data) => {
     console.log(data);
 
-    const fullData = { ...data, role: "client" };
     const EMAILJS_USER_ID = 'D0tzFr3sUlNzTuqeA'; // Reemplaza con tu User ID
     const EMAILJS_SERVICE_ID = 'service_vw1f6aj'; // Reemplaza con tu Service ID
     const EMAILJS_TEMPLATE_ID = 'template_3a3tezc'; // Reemplaza con tu Template ID
@@ -37,7 +36,7 @@ const CardPlan = ({isLogged,nombre}) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify(fullData),
+        body: JSON.stringify(data),
       });
       const emailData = {
         to_email: data.email, // Reemplaza con la dirección de correo a la que deseas enviar
@@ -230,6 +229,7 @@ const CardPlan = ({isLogged,nombre}) => {
                       {errors.infoTres?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
+                  <input type="hidden" {...register("plan", { value: nombre })} />
                 </Row>
                 {
                   isLogged ? (/*Este se referencia cuando esta loggeado */

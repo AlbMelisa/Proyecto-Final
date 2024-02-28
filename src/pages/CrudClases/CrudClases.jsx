@@ -1,9 +1,9 @@
 import React from 'react'
 import Grilla from '../../components/Grilla/Grilla'
 
-const CrudClases = () => {
+const CrudClases = ({setUser, nombre}) => {
   return (
-    <Grilla/>
+    <Grilla setUser={setUser} nombre={nombre}/>
   )
 }
 
