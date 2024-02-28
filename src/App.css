@@ -1,47 +1,14 @@
-.navbarStyle{
-  background-color: #000;
-}
-body{
-  background-color: #141414;
-}
-.gymmageStyle{
-  height: 2rem;
-}
-.logoStyle{
-  height: 3rem;
-}
-.buttonStyle{
- background-color: #141414;
-  border-radius: 20px;
-  cursor: pointer;
-  border: none;
-  padding: 10px 15px;
-  font-size: 18px;
-}
-.buttonStyle:hover{
-  background-color: #62D8EA;
-  color: #000;
-}
-.cardPlan{
-  background-color: #302D2D;
-}
-.imagePlan{
-  height: 520px;
-  width: 270px;
-}
-.colorForm{
-  background-color: #BCC8CB;
-}
-.colorForm:focus-visible{
-  background-color: #BCC8CB;
-  outline: none; 
 
-}
-.colorForm:focus {
-  border: 2px solid #a0a0a0; /* Puedes cambiar el color y el grosor del borde */
-  box-shadow: 0 0 4px #FFFFFF; /* Puedes cambiar el color y la intensidad del resplandor */
-}
-.letterType{
-  font-family: 'Anton', sans-serif;
-font-family: 'Luckiest Guy', cursive;
+
+
+body{
+  background: rgb(8,28,34);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  backdrop-filter: blur(4px);
 }
