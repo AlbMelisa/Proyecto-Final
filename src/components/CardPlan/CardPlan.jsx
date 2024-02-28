@@ -13,8 +13,10 @@ import { API_URL } from "../../utils/constant.js";
 import Swal from "sweetalert2";
 import '../CardPlan/CardPlan.css'
 import emailjs from 'emailjs-com';
+import { useParams } from 'react-router-dom';
 
-const CardPlan = ({isLogged}) => {
+const CardPlan = ({isLogged,nombre}) => {
+  console.log(nombre)
   const {
     register,
     handleSubmit,
@@ -89,7 +91,7 @@ const CardPlan = ({isLogged}) => {
             <Col className="mb-3 p-0">
               <Row className="m-0">
                 <Col>
-                  <h2 className="m-2 fst-italic">PLAN # </h2>
+                  <h2 className="m-2 fst-italic">PLAN #{nombre} </h2>
                 </Col>
                 <Col className="m-0 p-0">
                   <div className="d-flex justify-content-end p-0 m-0">

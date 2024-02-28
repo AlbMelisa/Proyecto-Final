@@ -8,7 +8,7 @@ import Error404 from '../pages/Error404/Error404'
 import LoginComponent from '../components/Login/LoginComponent'
 import NavbarComponent from '../components/NavbarComponent/NavbarComponent'
 import FooterComponent from '../components/Footer/FooterComponent'
-import Admin from '../pages/Admin/Admin'
+import SobreNosotros from '../pages/SobreNosotros/SobreNosotros'
 
 const PublicRouter = ({isLogged ,setUser}) => {
   return (
@@ -18,11 +18,15 @@ const PublicRouter = ({isLogged ,setUser}) => {
           <Routes>
             <Route path='/' element={<Navigate to={'/home'}/>}/>
             <Route path='/Home' element={<Home setUSer={setUser}/>} />
-            <Route path='/Plan' element={<Plan isLogged={isLogged}/>}/>
+            <Route path='/Plan/full' element={<Plan isLogged={isLogged} nombre="full"/>} />
+            <Route path='/Plan/musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
+            <Route path='/Plan/clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
+
             <Route path='/Registro' element={<Registro/>}/>
             <Route path='/Contacto' element={<Contacto/>}/>
             <Route path='/Error404' element={<Error404/>}/>
             <Route path='/login' element={<LoginComponent setUser={setUser}/>}/>
+            <Route path='/sobreNosotros' element={<SobreNosotros/>}/>
             <Route path='*' element={<Navigate to={'/Error404'}/>}/>
           </Routes>
           <FooterComponent />

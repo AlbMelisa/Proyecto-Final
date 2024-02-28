@@ -7,24 +7,28 @@ import Plan from '../pages/Plan/Plan'
 import Registro from '../pages/Registro/Registro'
 import Error404 from '../pages/Error404/Error404'
 import LoginComponent from '../components/Login/LoginComponent'
-import Admin from '../pages/Admin/Admin'
 import Grilla from '../components/Grilla/Grilla'
+import CrudPlanes from '../pages/CrudPlanes/CrudPlanes'
+import CrudUsuarios from '../pages/CrudUsuarios/CrudUsuarios'
+import CrudClases from '../pages/CrudClases/CrudClases'
 
-const PrivateRoute = ({setUser, isLogged}) => {
+const PrivateRoute = ({setUser, isLogged,userInfo}) => {
   return (
     <>
-    <div>private</div>
-    <Routes>
-      <Route path='/' element={<Navigate to={'/home'}/>}/>
-      <Route path='/home' element={<Home/>}/>
-      <Route exact path='/admin' element={<Admin setUser={setUser}/>} />
-      <Route exact path='/Plan' element={<Plan isLogged={isLogged}/>}/>
-      <Route exact path='/Error404' element={<Error404/>}/>
-      <Route path='/info' element={<div>hola</div>}/>
-      <Route path='/' element={<Navigate to={'/admin'}/>}/>
-
-      <Route path='*' element={<Navigate to='/'/>}/> 
-
+   <Routes>
+      <Route path='/' element={<Navigate to='/home' />} />
+      <Route path='/home' element={<Home setUSer={setUser} userInfo={userInfo} />} />
+      {userInfo && userInfo.role === 'admin' && (
+        <>
+          <Route path='/crudPlanes' element={<CrudPlanes />} />
+          <Route path='/crudUsuarios' element={<CrudUsuarios/>}/>
+          <Route path='/crudClases' element={<CrudClases/>}/>
+        </>
+      )}
+      <Route exact path='/Plan' element={<Plan isLogged={isLogged} />} />
+      <Route exact path='/Error404' element={<Error404 />} />
+      <Route path='/info' element={<div>hola</div>} />
+      <Route path='*' element={<Navigate to='/' />} />
     </Routes>
     </>
   )
