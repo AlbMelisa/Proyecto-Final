@@ -9,7 +9,7 @@ export const PlanesPP = () => {
     
     <Row className='g-0 back' >
       <Col className='m-2 d-flex justify-content-center'>
-        <CardView plan={'I'} nombre={'Musculación'}descripcion={'Ajusta tu porcentaje de grasa y composición corporal y fortalece tu musculatura.'} />
+        <CardView plan={'I'} nombre={'musculacion'} descripcion={'Ajusta tu porcentaje de grasa y composición corporal y fortalece tu musculatura.'} />
       </Col>
      <Col className='m-2 d-flex justify-content-center'>
         <CardView plan={'II'} nombre={'Clases'}descripcion={'Mantén un estilo de vida saludable junto a nuestras clases para mantener tu peso ideal'}/>
