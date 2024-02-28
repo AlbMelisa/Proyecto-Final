@@ -8,32 +8,30 @@ const ModalComponent = ({ show, handleClose, selectedUser,token }) => {
   const [userData, setUserData] = useState({});
   const [originalUserData, setOriginalUserData] = useState({});
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    updateUser(userData);
-    handleClose();
+  // CRUD - UPDATE - DELETE
+  const updateUser = async (userData) => {
+    console.log(userData)
+    try {
+      const response = await fetch(`http://localhost:4000/user/${userData._id}`, {
+        method: "PUT", // Utiliza el método PUT para actualizar los datos
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        credentials: "include",
+        body: JSON.stringify(userData), // Convierte userData a formato JSON antes de enviarlo
+      });
+  
+      if (!response.ok) {
+        const data = await response.json();
+        console.log(data);
+        return;
+      }
+      console.log("Usuario actualizado exitosamente");
+    } catch (error) {
+      console.error("Error al actualizar el usuario:", error);
+    }
   };
-
-  const handleCancel = () => {
-    setUserData(originalUserData); // Restaura los datos originales al cancelar
-    handleClose();
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
-    
-  };
-
-  useEffect(() => {
-    setUserData(selectedUser); // Actualiza userData con el nuevo selectedUser
-    setOriginalUserData(selectedUser); // Guarda una copia de seguridad de los datos originales
-  }, [selectedUser]); // Se ejecuta cuando selectedUser cambie
-
   const deleteUser = async (id) => {
     try {
       swal({
@@ -71,6 +69,31 @@ const ModalComponent = ({ show, handleClose, selectedUser,token }) => {
       console.error("Error al eliminar el usuario:", error);
     }
   };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    updateUser(userData);
+    handleClose();
+  };
+
+  const handleCancel = () => {
+    setUserData(originalUserData); // Restaura los datos originales al cancelar
+    handleClose();
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setUserData(prevUserData => ({
+      ...prevUserData,
+      [name]: value,
+    }));
+  };
+
+  useEffect(() => {
+    setUserData(selectedUser); // Actualiza userData con el nuevo selectedUser
+    setOriginalUserData(selectedUser); // Guarda una copia de seguridad de los datos originales
+  }, [selectedUser]); // Se ejecuta cuando selectedUser cambie
+
 
   return (
     <Modal show={show} onHide={handleClose} className='d-flex justify-content-center align-items-center'>
@@ -85,7 +108,6 @@ const ModalComponent = ({ show, handleClose, selectedUser,token }) => {
               name="nombre"
               value={userData?.nombre || ''}
               onChange={handleChange}
-
             />
           </Form.Group>
           <Form.Group controlId="formBasicApellido">
@@ -95,7 +117,6 @@ const ModalComponent = ({ show, handleClose, selectedUser,token }) => {
               name="apellido"
               value={userData?.apellido || ''}
               onChange={handleChange}
-
             />
           </Form.Group>
           <Form.Group controlId="formBasicEmail">
@@ -105,12 +126,11 @@ const ModalComponent = ({ show, handleClose, selectedUser,token }) => {
               name="email"
               value={userData?.email || ''}
               onChange={handleChange}
-
             />
           </Form.Group>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" onClick={handleSubmit} >
             Guardar 
         </Button>
         <Button variant="danger" onClick={() => deleteUser(selectedUser._id)}>
