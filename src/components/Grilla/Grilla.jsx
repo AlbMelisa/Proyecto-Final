@@ -48,33 +48,7 @@ const Grilla = ({ setUser }) => {
       console.log(data);
     }
   };
-  const deleteUser = async (userId) => {
-    try {
-      const response = await fetch("http://localhost:4000/user", {
-        method: "DELETE",
-        headers: { Authorization: `Bearer ${token}` },
-        credentials: "include",
-      });
-      return
-      if (!response.ok) {
-        const data = await response.json();
-        console.log(data);
-        return;
-      }
-  
-      setUserList((prevList) => prevList.filter((user) => user._id !== userId));
-      console.log("Usuario eliminado exitosamente");
-    } catch (error) {
-      console.error("No se puso eliminar el usuario(front):", error);
-  
-    if (response.status === 200) {
-      const data = await response.json();
-      setUserList(data);
-      console.log(data);
-  
-    }
-    }
-  }
+
   
   return (
     <>
