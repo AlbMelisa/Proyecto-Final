@@ -8,6 +8,7 @@ import { Button } from 'react-bootstrap'
 import { useForm } from "react-hook-form";
 import { API_URL } from "../../utils/constant.js";
 import {jwtDecode} from 'jwt-decode'
+import Swal from "sweetalert2";
 
 const LoginComponent = ({setUser}) => {
   const {register, handleSubmit,formState: { errors },reset} = useForm();
@@ -23,15 +24,11 @@ const LoginComponent = ({setUser}) => {
     
   if (response.status === 400) {
     const responseData = await response.json();
-    // Muestra el mensaje de error al usuario
-    alert(responseData.message);
-    return;
-  }
-
-  if (response.status === 401) {
-    const responseData = await response.json();
-    // Muestra el mensaje de error al usuario
-    alert(responseData.message);
+    Swal.fire({
+      title: "Error",
+      text: "Usuario o Contraseña incorrectos.",
+      icon: "error",
+    });
     return;
   }
 
