@@ -10,12 +10,22 @@ import {
   Row,
 } from "react-bootstrap";
 import ModalComponent from "../ModalComponent/ModalComponent";
+import { API_URL } from "../../utils/constant.js";
 
-const Grilla = ({ setUser }) => {
+const Grilla = ({ setUser , nombre}) => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [userList, setUserList] = useState([]);
   const token = localStorage.getItem("token");
+
+  let url = `${API_URL}user`
+  
+  if(nombre === 'clases'){
+     url = `${API_URL}clase`
+  }
+  if(nombre === 'planes'){
+     url = `${API_URL}plan`
+  }
   
   const handleRowClick = (User) => {
     setSelectedUser(User);
@@ -23,7 +33,7 @@ const Grilla = ({ setUser }) => {
   };
   
   const getUser = async () => {
-    const response = await fetch("http://localhost:4000/user", {
+    const response = await fetch(url, {
       method: "GET",
       headers: { Authorization: `Bearer ${token}` },
       credentials: "include",
@@ -49,12 +59,17 @@ const Grilla = ({ setUser }) => {
     }
   };
 
-  
+  useEffect(() => {
+    getUser();
+  }, []);
+
   return (
     <>
-      <h1>BIENVENIDOS AL PANEL DE ADMINISTRACIÓN</h1>
-      <h2 className="text-center">USUARIOS</h2>
+      <h1 className="text-light d-flex justify-content-center py-2">BIENVENIDOS AL PANEL DE ADMINISTRACIÓN</h1>
+      <h2 className="text-center text-uppercase">{nombre}</h2>
       <div>
+        {nombre == 'usuarios' &&
+        (
         <Table striped bordered hover variant="dark" className="p-2">
           <thead>
             <tr>
@@ -75,17 +90,57 @@ const Grilla = ({ setUser }) => {
             ))}
           </tbody>
         </Table>
+        )}
+        {nombre == 'clases' &&
+        (
+        <Table striped bordered hover variant="dark" className="p-2">
+          <thead>
+            <tr>
+              <th className="text-center">Descripcion</th>
+              <th className="text-center">Profesor</th>
+              <th className="text-center">Hora</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userList.map((User) => (
+              <tr key={User._id} onClick={() => handleRowClick(User)}>
+                <td className="text-center">{User.descripcion}</td>
+                <td className="text-center">{User.profesor}</td>
+                <td className="text-center">{User.hora}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        )}
+        {nombre == 'planes' &&
+        (
+        <Table striped bordered hover variant="dark" className="p-2">
+          <thead>
+            <tr>
+              <th className="text-center">Plan</th>
+              <th className="text-center">Usuario</th>
+              <th className="text-center">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {userList.map((User) => (
+              <tr key={User._id} onClick={() => handleRowClick(User)}>
+                <td className="text-center">{User.plan}</td>
+                <td className="text-center">{User.nombre} {User.apellido}</td>
+                <td className="text-center">{User.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+        )}
       </div>
-      <Button className="m-2 text-center" onClick={() => getUser()}>
-        Obtener Usuarios
-      </Button>
-  
   
       <ModalComponent
         show={showModal}
         handleClose={() => setShowModal(false)}
         selectedUser={selectedUser}
         token={token}
+        nombre={nombre}
       />      
     </>
   );
