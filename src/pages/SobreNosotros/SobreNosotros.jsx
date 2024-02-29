@@ -4,7 +4,9 @@ import 'SobreNosotros.css'
 
 const SobreNosotros = () => {
   return (
+    <>
      <CardsComponent/>
+    </>
   )
 }
 
