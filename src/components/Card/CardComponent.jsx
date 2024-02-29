@@ -4,12 +4,12 @@ import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar los estilos de Bootstrap
 
 
-const CardComponent = ({title, imageSource}) => {
+const CardComponent = ({title, image}) => {
 
   return (
   <>
     <Col  className='card-style' >
-      <img alt="tarjetas" src={imageSource} width='110px' />
+      <img alt="tarjetas" src={image} width='140px' />
       <h4>{title}</h4>
     </Col>
   </>

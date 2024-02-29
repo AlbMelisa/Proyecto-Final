@@ -2,7 +2,7 @@
 
 .container-all {
  
- 
+  background: url('../../images/acercaDenosotros.png') center/cover no-repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,9 +26,9 @@
   font-size: xxxx-larga;
   font: bold;
   margin-top: 50px;
-  transition: color 0.3s; /* Agrega una transición para suavizar el cambio de color */
+  transition: color 0.3s; 
 }
 
 .frase:hover {
-  color: #62E8DA; /* Cambia a tu color deseado al pasar el ratón por encima */
+  color: #62E8DA; 
 }
