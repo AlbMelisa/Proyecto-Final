@@ -2,7 +2,7 @@
 
 .container-all {
  
-  background: url('../../images/acercaDenosotros.png') center/cover no-repeat;
+ 
   min-height: 100vh;
   display: flex;
   flex-direction: column;
