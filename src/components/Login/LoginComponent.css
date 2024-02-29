@@ -1,7 +1,14 @@
+
 .ConteinerCard{
   background-image: url('/src/images/ImgProyect.png');
-  background-color: aquamarine;
-  border-radius: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 15px 8px #000000;
+  transition: all;
+  transition-duration: 400ms;
+}
+.ConteinerCard:hover{
+  transform:translateY(-10px);
+
 }
 .letter{
   color: white;

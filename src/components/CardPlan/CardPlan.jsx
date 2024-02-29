@@ -13,8 +13,10 @@ import { API_URL } from "../../utils/constant.js";
 import Swal from "sweetalert2";
 import '../CardPlan/CardPlan.css'
 import emailjs from 'emailjs-com';
+import { useParams } from 'react-router-dom';
 
-const CardPlan = (props) => {
+const CardPlan = ({isLogged,nombre}) => {
+  console.log(nombre)
   const {
     register,
     handleSubmit,
@@ -25,7 +27,6 @@ const CardPlan = (props) => {
   const onSubmit = async (data) => {
     console.log(data);
 
-    const fullData = { ...data, role: "client" };
     const EMAILJS_USER_ID = 'D0tzFr3sUlNzTuqeA'; // Reemplaza con tu User ID
     const EMAILJS_SERVICE_ID = 'service_vw1f6aj'; // Reemplaza con tu Service ID
     const EMAILJS_TEMPLATE_ID = 'template_3a3tezc'; // Reemplaza con tu Template ID
@@ -35,7 +36,7 @@ const CardPlan = (props) => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
-        body: JSON.stringify(fullData),
+        body: JSON.stringify(data),
       });
       const emailData = {
         to_email: data.email, // Reemplaza con la dirección de correo a la que deseas enviar
@@ -60,17 +61,23 @@ const CardPlan = (props) => {
       });
     }
   };
-
+  const logFalse = () =>{
+    Swal.fire({
+      title: "Error!",
+      text: "Para poder acceder a un plan necesitas Iniciar Sesión.",
+      icon: "error",
+    });
+  }
   return (
-    <div>
+    <div >
       <div className="d-flex justify-content-center m-2">
-        <h3 className="letterType text-center text-light">
+        <h3 className="letterType text-center text-dark">
           Completa el siguiente cuestionario y nos pondremos en contacto con
           vos.
         </h3>
       </div>
       <div className="d-flex justify-content-center m-2 ">
-        <Card className="cardPlan col-xl-8 col-md-9 col-10  text-light border border-0">
+        <Card className="cardPlan col-xl-8 col-md-9 col-10  text-dark border border-0">
           <Row className=" m-0">
             <Col md="auto" className="p-0 m-0">
               <div className="d-flex justify-content-center  m-0">
@@ -83,7 +90,7 @@ const CardPlan = (props) => {
             <Col className="mb-3 p-0">
               <Row className="m-0">
                 <Col>
-                  <h2 className="m-2 fst-italic">PLAN #{props.plan} </h2>
+                  <h2 className="m-2 fst-italic">PLAN #{nombre} </h2>
                 </Col>
                 <Col className="m-0 p-0">
                   <div className="d-flex justify-content-end p-0 m-0">
@@ -222,12 +229,23 @@ const CardPlan = (props) => {
                       {errors.infoTres?.message}
                     </Form.Control.Feedback>
                   </Form.Group>
+                  <input type="hidden" {...register("plan", { value: nombre })} />
                 </Row>
-                <div className="d-flex justify-content-end">
-                  <Button className="mt-3 mx-2 buttonStyle" type="submit">
-                    Enviar
-                  </Button>
-                </div>
+                {
+                  isLogged ? (/*Este se referencia cuando esta loggeado */
+                    <div className="d-flex justify-content-end">
+                      <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit">
+                       Enviar
+                      </Button>
+                    </div>
+                  ):(/*Este se refencia cuando no esta loggeado */
+                    <div className="d-flex justify-content-end">
+                      <Button className="mt-3 mx-2 buttonStyle text-dark" type="submit" onClick={() => logFalse()}>
+                         Enviar
+                      </Button>
+                      </div>
+                  )
+                }
               </Form>
             </Col>
           </Row>

@@ -35,20 +35,20 @@ const Clima = () => {
   return (
     <div className="m-0">
       <Row className="p-0 g-0">
-      <Col className="">
-          <h1 className='m-3 text-center text-dark'>Horarios</h1>
+      <Col className="loco">
+          <h1 className='m-1 text-center text-white'> <br/> Horarios</h1>
           <Row className='text-center g-0 p-0'>
-            <Col className='text-dark'>
+            <Col className='text-white'>
               <h2>LUN-VIE</h2>
               <h3>8:00 a 23:00</h3>
             </Col>
-            <Col className='text-dark'>
+            <Col className='text-white'>
               <h2>SÁBADOS</h2>
               <h3>9:00 a 18:00</h3>
             </Col>
           </Row>
         </Col>
-        <Col className="p-0 text-dark ">
+        <Col className="p-0 text-white loco2">
         <h3 className="text-center m-3">Clima en {climaData?.name}</h3>
         {climaData && (
           <div className="d-flex justify-content-center">

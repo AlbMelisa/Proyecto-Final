@@ -1,37 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Card,
-  Image,
-} from "react-bootstrap";
+import { Row,Col, Form,Button,Card, Image,} from "react-bootstrap";
 import "../Register/RegisterComponent.css";
-import logo from "../../images/LogoGymAgeCompleto.png";
-const RegisterComponents = () => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+import logo from "../../images/LogoGymageCompleto.png";
+import { API_URL } from "../../utils/constant.js";
 
-  const onSubmit = (data) => {
-    try {
-        console.log(data);
-        
-    } catch (error) {
-        
+import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
+
+const RegisterComponents = () => {
+  const {register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const [aceptoTerminos, setAceptoTerminos] = useState(false);
+
+  const onSubmit = async (data) => {
+    
+    if (!aceptoTerminos) {
+      // Si el usuario no ha aceptado los términos y condiciones, puedes mostrar un mensaje de error
+      Swal.fire({
+        title: "Error",
+        text: "Debes aceptar los términos y condiciones para registrarte.",
+        icon: "error",
+      });
+      return; // Detiene el envío del formulario
     }
-    // EN VEZ DEL CONSOLE LOG TENGO QUE HACER EL FETCH Y MANDARLO A LA BASE DE DATOS
+    try {
+        const fullData = {...data, role:'user'}
+        const response = await fetch(`${API_URL}user`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(fullData),
+      });
+      
+      Swal.fire({
+        title: "Felicidades!",
+        text: "Su cuenta fue enviado con exito.",
+        icon: "success",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "¡Hubo un error Inesperado!",
+        icon: "error",
+      });
+    }
+    reset();
+  };
+  const handleAceptoTerminosChange = () => {
+    setAceptoTerminos(!aceptoTerminos);
   };
 
   return (
-    <div className="d-flex justify-content-center m-3">
-      <Card className="styleCard">
+    <div className="d-flex justify-content-center ">
+      <Card className="styleCard m-2">
         <Row>
           <Col className="d-flex justify-content-center flex-column">
             <h1 className="text-center text-light">REGISTRATE</h1>
@@ -47,10 +68,12 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="text"
                   placeholder="Ingrese su nombre.."
-                  {...register("firstName", {
+                  minLength={3}
+                  maxLength={50}
+                  {...register("nombre", {
                     required: "Este campo es obligatorio",
                   })}
-                  isInvalid={!!errors.firstName}
+                  isInvalid={!!errors.nombre}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.firstName?.message}
@@ -62,10 +85,12 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="text"
                   placeholder="Ingrese su apellido.."
-                  {...register("lastName", {
+                  minLength={3}
+                  maxLength={60}
+                  {...register("apellido", {
                     required: "Este campo es obligatorio",
                   })}
-                  isInvalid={!!errors.lastName}
+                  isInvalid={!!errors.apellido}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.lastName?.message}
@@ -77,6 +102,8 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="email"
                   placeholder="Ingrese su email.."
+                  minLength={12}
+                  maxLength={46}
                   {...register("email", {
                     required: "Este campo es obligatorio",
                   })}
@@ -92,10 +119,12 @@ const RegisterComponents = () => {
                   className="colorForm"
                   type="password"
                   placeholder="Ingrese su contraseña.."
-                  {...register("password", {
+                  minLength={8}
+                  maxLength={30}
+                  {...register("clave", {
                     required: "Este campo es obligatorio",
                   })}
-                  isInvalid={!!errors.password}
+                  isInvalid={!!errors.clave}
                 />
                 <Form.Control.Feedback type="invalid">
                   {errors.password?.message}
@@ -107,13 +136,15 @@ const RegisterComponents = () => {
                   id="custom-switch"
                   label="Acepto términos y condiciones"
                   className="text-light text-center mt-2"
+                  checked={aceptoTerminos}
+                  onChange={handleAceptoTerminosChange}
                 />
               </Form>
               <div className="d-flex  flex-column m-2 ">
-                <Button className=" buttonStyle text-center" type="submit">
+                <Button className=" buttonStyle text-center text-dark" type="submit">
                   Registrarse
                 </Button>
-                <h4 className="text-light text-center">¿Ya tenes cuenta?</h4>
+                <h4 className="text-light text-center"><Link to='/login' className="text-decoration-none text-light">¿Ya tenes cuenta?</Link></h4>
               </div>
             </Form>
           </Col>

@@ -14,13 +14,13 @@ import {
 import { MdOutlinePlace } from "react-icons/md";
 import { FaPeopleGroup } from "react-icons/fa6";
 import Image from "react-bootstrap/Image";
-import logo from "../../images/LogoGymAgeCompleto.png";
+import logo from "../../images/LogoGymageCompleto.png";
 import { Link } from "react-router-dom";
 
 const FooterComponent = () => {
   return (
     <>
-      <Navbar className="footer-navbar" fixed="bottom">
+      <Navbar className="footer-navbar " fixed="bottom">
         <Container id="footer-container" className="footer-container">
           <Row className="w-100 my-3 ">
             <Col sm={12} md={4} className="logo-col my-2">
@@ -86,8 +86,8 @@ const FooterComponent = () => {
                 </Nav.Item>
                 <ul className="list-unstyled info-links">
                   <li>
-                    <a
-                      href="https://www.whatsapp.com"
+                    <Link
+                    to='/contacto'
                       className="text-white font-size-normal"
                     >
                       <FaMobileAlt
@@ -96,10 +96,10 @@ const FooterComponent = () => {
                         href="https://www.whatsapp.com"
                       />{" "}
                       Contacto
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <Link to="nosotros" className="text-white font-size-normal">
+                    <Link to="/sobreNosotros" className="text-white font-size-normal">
                       <FaPeopleGroup size={20} color="white" /> Nosotros
                     </Link>
                   </li>

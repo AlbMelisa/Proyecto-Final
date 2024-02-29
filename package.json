@@ -19,7 +19,8 @@
     "react-hook-form": "^7.49.3",
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.21.2",
-    "sweetalert2": "^11.10.4"
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^11.10.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -29,6 +30,6 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
-    "vite": "^5.0.8"
+    "vite": "^5.1.0"
   }
 }
