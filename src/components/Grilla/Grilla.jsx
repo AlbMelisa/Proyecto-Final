@@ -96,7 +96,7 @@ const Grilla = ({ setUser , nombre}) => {
         <Table striped bordered hover variant="dark" className="p-2">
           <thead>
             <tr>
-              <th className="text-center">Descripcion</th>
+              <th className="text-center">Clase</th>
               <th className="text-center">Profesor</th>
               <th className="text-center">Hora</th>
             </tr>
@@ -104,7 +104,7 @@ const Grilla = ({ setUser , nombre}) => {
           <tbody>
             {userList.map((User) => (
               <tr key={User._id} onClick={() => handleRowClick(User)}>
-                <td className="text-center">{User.descripcion}</td>
+                <td className="text-center">{User.nombre}</td>
                 <td className="text-center">{User.profesor}</td>
                 <td className="text-center">{User.hora}</td>
               </tr>

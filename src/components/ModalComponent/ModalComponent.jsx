@@ -20,7 +20,10 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
   }
   // CRUD - UPDATE - DELETE
   const updateUser = async (userData) => {
-    console.log(userData);
+    console.log('El dato es:', userData, url);
+    if(nombre === "clases"){
+      url = `${API_URL}clase/modificar`
+    }
     try {
       const response = await fetch(`${url}/${userData._id}`, {
         method: "PUT", // Utiliza el método PUT para actualizar los datos
@@ -38,6 +41,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
         return;
       }
       console.log("Usuario actualizado exitosamente");
+        window.location.reload();
     } catch (error) {
       console.error("Error al actualizar el usuario:", error);
     }
@@ -114,7 +118,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
         {
           nombre == 'usuarios' && (
           <Modal.Body>
-              <Form.Group controlId="formBasicNombre">
+              <Form.Group >
                 <Form.Label>Nombre</Form.Label>
                 <Form.Control
                   type="text"
@@ -123,7 +127,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicApellido">
+              <Form.Group >
                 <Form.Label>Apellido</Form.Label>
                 <Form.Control
                   type="text"
@@ -132,7 +136,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="email"
@@ -141,7 +145,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
                   onChange={handleChange}
                 />
               </Form.Group>
-              <Form.Group controlId="formBasicEmail">
+              <Form.Group >
                 <Form.Label>Email</Form.Label>
                 <Form.Control
                   type="text"

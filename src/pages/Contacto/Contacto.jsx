@@ -10,8 +10,8 @@ const Contacto = () => {
             <h2>Contactanos</h2>
             <form id="formularioContacto">
               <p>
-                <label htmlFor="fullname">Fullname:</label>
-                <input type="text" name="fullname" required />
+                <label htmlFor="fullname">Nombre:</label>
+                <input type="text" name="nombre" required />
               </p>
               <p>
                 <label htmlFor="Email">Email:</label>
@@ -39,12 +39,6 @@ const Contacto = () => {
             <ul>
               <li>
                 <i className="fa-solid fa-location-dot"></i> Pasaje democracia
-              </li>
-              <li>
-                <i className="fa-solid fa-envelope"></i> Pasaje democracia
-              </li>
-              <li>
-                <i className="fa-solid fa-phone"></i> Pasaje democracia
               </li>
             </ul>
             <p>

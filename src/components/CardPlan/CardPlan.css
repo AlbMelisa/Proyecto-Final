@@ -1,17 +1,19 @@
 .cardPlan{
   background-color: #302D2D;
 }
+.planColor{
+  color: #62D8EA;
+}
 .imagePlan{
   height: 520px;
   width: 270px;
 }
 .colorForm{
-  background-color: #BCC8CB;
+  background-color: #FFFFFF;
 }
 .colorForm:focus-visible{
-  background-color: #BCC8CB;
+  background-color: #fff;
   outline: none; 
-
 }
 .colorForm:focus {
   border: 2px solid #a0a0a0; /* Puedes cambiar el color y el grosor del borde */
