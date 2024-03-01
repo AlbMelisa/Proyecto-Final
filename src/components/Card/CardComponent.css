@@ -1,13 +1,9 @@
-
-
-
-.card-style{
+.card-style {
   height: 250px;
   width: 200px;
   margin: 10px;
-  background-color: rgba(188, 200, 203, 0.7);
+  background-color: rgba(135, 249, 245, 0.785);
   border-radius: 20px;
-  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,21 +11,21 @@
   padding: 60px;
   max-height: 300px;
   font-family: 'Secular One', sans-serif;
- 
+  transition: all 0.3s ease-in-out;
 }
 
-.container-cards{
- 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-
-
-}
-
-@media (max-width: 768px) {
+@media (min-width: 500px) {
   .card-style {
-    width: 100%; /* Otra opción puede ser usar un porcentaje */
+   min-width: 200px;
+   min-height: 200px;
   }
+
+
 }
+
+  .card-style:last-child {
+  
+    height: 250px;
+    width: 200px;
+   
+  }

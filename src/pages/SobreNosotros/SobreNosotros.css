@@ -8,6 +8,7 @@
   flex-direction: column;
 
 }
+
 .footer-container {
   width: 100%;
   background-color: black;
@@ -20,13 +21,12 @@
 .frase {
   color: white;
   font-family: 'Secular One', sans-serif;
-
   font-weight: bold;
   text-align: center;
   font-size: xxxx-larga;
   font: bold;
   margin-top: 50px;
-  transition: color 0.3s; 
+  transition: color 0.3s;
 }
 
 .frase:hover {

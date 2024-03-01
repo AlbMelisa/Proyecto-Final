@@ -8,8 +8,8 @@ const CardComponent = ({title, image}) => {
 
   return (
   <>
-    <Col  className='card-style' >
-      <img alt="tarjetas" src={image} width='140px' />
+    <Col  className='card-style p-0' >
+      <img alt="tarjetas" src={image} width='180px' />
       <h4>{title}</h4>
     </Col>
   </>
