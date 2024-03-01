@@ -67,11 +67,11 @@ const Grilla = ({ setUser , nombre}) => {
     <>
       <h1 className="text-light d-flex justify-content-center py-2">BIENVENIDOS AL PANEL DE ADMINISTRACIÓN</h1>
       <h2 className="text-center text-uppercase">{nombre}</h2>
-      <div>
+      <div className="table-responsive small p-3">
         {nombre == 'usuarios' &&
         (
-        <Table striped bordered hover variant="dark" className="p-2">
-          <thead>
+        <Table table striped bordered hover variant="dark" className="p-2">
+          <thead className="table-light">
             <tr>
               <th className="text-center">Nombre</th>
               <th className="text-center">Apellido</th>
@@ -93,8 +93,8 @@ const Grilla = ({ setUser , nombre}) => {
         )}
         {nombre == 'clases' &&
         (
-        <Table striped bordered hover variant="dark" className="p-2">
-          <thead>
+        <Table table striped bordered hover variant="dark" className="p-2">
+          <thead className="table-light">
             <tr>
               <th className="text-center">Clase</th>
               <th className="text-center">Profesor</th>
@@ -115,7 +115,7 @@ const Grilla = ({ setUser , nombre}) => {
         {nombre == 'planes' &&
         (
         <Table striped bordered hover variant="dark" className="p-2">
-          <thead>
+          <thead className="table-light">
             <tr>
               <th className="text-center">Plan</th>
               <th className="text-center">Usuario</th>
