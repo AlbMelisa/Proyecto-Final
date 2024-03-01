@@ -8,7 +8,6 @@ import Error404 from '../pages/Error404/Error404'
 import LoginComponent from '../components/Login/LoginComponent'
 import NavbarComponent from '../components/NavbarComponent/NavbarComponent'
 import FooterComponent from '../components/Footer/FooterComponent'
-import SobreNosotros from '../pages/SobreNosotros/SobreNosotros'
 
 const PublicRouter = ({isLogged ,setUser}) => {
   return (
@@ -26,7 +25,6 @@ const PublicRouter = ({isLogged ,setUser}) => {
             <Route path='/Contacto' element={<Contacto/>}/>
             <Route path='/Error404' element={<Error404/>}/>
             <Route path='/login' element={<LoginComponent setUser={setUser}/>}/>
-            <Route path='/sobreNosotros' element={<SobreNosotros/>}/>
             <Route path='*' element={<Navigate to={'/Error404'}/>}/>
           </Routes>
           <FooterComponent />

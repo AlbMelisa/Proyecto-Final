@@ -25,7 +25,7 @@ const CardPlan = ({isLogged,nombre}) => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    console.log(data.email);
 
     const EMAILJS_USER_ID = 'D0tzFr3sUlNzTuqeA'; // Reemplaza con tu User ID
     const EMAILJS_SERVICE_ID = 'service_vw1f6aj'; // Reemplaza con tu Service ID
@@ -90,8 +90,8 @@ const CardPlan = ({isLogged,nombre}) => {
             <Col className="mb-3 p-0">
               <Row className="m-0">
                 <Col>
-                  <h2 className="m-2 fst-italic">PLAN #{nombre} </h2>
-                </Col>
+                  <h2 className="m-2 fst-italic ">PLAN <br></br>#<span className="planColor text-uppercase">{nombre}</span></h2>
+                </Col> 
                 <Col className="m-0 p-0">
                   <div className="d-flex justify-content-end p-0 m-0">
                     <Image
@@ -105,7 +105,7 @@ const CardPlan = ({isLogged,nombre}) => {
                 <Row className="m-1">
                   <Col>
                     <Form.Group>
-                      <Form.Label>Nombre</Form.Label>
+                      <Form.Label className="text-light">Nombre</Form.Label>
                       <FormControl
                         className="rounded-pill colorForm"
                         type="text"
@@ -124,7 +124,7 @@ const CardPlan = ({isLogged,nombre}) => {
                   </Col>
                   <Col>
                     <Form.Group>
-                      <Form.Label>Apellido</Form.Label>
+                      <Form.Label className="text-light">Apellido</Form.Label>
                       <FormControl
                         className="rounded-pill colorForm"
                         type="text"
@@ -144,7 +144,7 @@ const CardPlan = ({isLogged,nombre}) => {
                 <Row className="m-1">
                   <Col>
                     <Form.Group>
-                      <Form.Label>Telefono</Form.Label>
+                      <Form.Label className="text-light">Telefono</Form.Label>
                       <FormControl
                         className="rounded-pill colorForm"
                         type="text"
@@ -162,7 +162,7 @@ const CardPlan = ({isLogged,nombre}) => {
                   </Col>
                   <Col>
                     <Form.Group>
-                      <Form.Label>Email</Form.Label>
+                      <Form.Label className="text-light">Email</Form.Label>
                       <FormControl
                         className="rounded-pill colorForm"
                         type="email"
@@ -181,7 +181,7 @@ const CardPlan = ({isLogged,nombre}) => {
                 </Row>
                 <Row className="m-1">
                   <Form.Group>
-                    <Form.Label>¿Cómo nos conociste?</Form.Label>
+                    <Form.Label className="text-light">¿Cómo nos conociste?</Form.Label>
                     <FormControl
                       className="rounded-pill colorForm"
                       type="text"
@@ -198,7 +198,7 @@ const CardPlan = ({isLogged,nombre}) => {
                 </Row>
                 <Row className="m-1">
                   <Form.Group>
-                    <Form.Label>¿Estás asistiendo a algún gimnasio?</Form.Label>
+                    <Form.Label className="text-light">¿Estás asistiendo a algún gimnasio?</Form.Label>
                     <FormControl
                       className="rounded-pill colorForm"
                       type="text"
@@ -215,7 +215,7 @@ const CardPlan = ({isLogged,nombre}) => {
                 </Row>
                 <Row className="m-1">
                   <Form.Group>
-                    <Form.Label>¿Cómo te encuentras fisicamente?</Form.Label>
+                    <Form.Label className="text-light">¿Cómo te encuentras fisicamente?</Form.Label>
                     <FormControl
                       className="rounded-pill colorForm"
                       type="text"
