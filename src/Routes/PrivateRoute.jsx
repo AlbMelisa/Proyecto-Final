@@ -25,9 +25,13 @@ const PrivateRoute = ({setUser, isLogged,userInfo}) => {
           <Route path='/crud/Clases' element={<CrudClases setUSer={setUser} nombre="clases"/>}/>
         </>
       )}
-      <Route exact path='/Plan' element={<Plan isLogged={isLogged} />} />
+      <Route path='/Plan/full' element={<Plan isLogged={isLogged} nombre="full"/>} />
+      <Route path='/Plan/musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
+      <Route path='/Plan/clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
+      <Route path='/Registro' element={<Registro/>}/>
+      <Route path='/Contacto' element={<Contacto/>}/>
+      <Route path='/Error404' element={<Error404/>}/>
       <Route exact path='/Error404' element={<Error404 />} />
-      <Route path='/info' element={<div>hola</div>} />
       <Route path='*' element={<Navigate to='/' />} />
     </Routes>
     </>
