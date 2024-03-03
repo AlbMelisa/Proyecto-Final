@@ -1,9 +1,19 @@
 import React from 'react'
-import CardsComponent from '../../components/Card/CardsComponent'
+
+import './SobreNosotros.css'
+import CardsComponent from '../Card/CardsComponent'
+
+
 
 const SobreNosotros = () => {
   return (
-     <CardsComponent/>
+    <>
+         <div className="container-all">
+            <h1 className='frase'>"El trabajo en equipo es la clave para desbloquear el potencial infinito de nuestra creatividad y habilidades"</h1>
+           <CardsComponent/>   
+                
+         </div>
+    </>
   )
 }
 
