@@ -15,19 +15,3 @@
   transition: all 0.3s ease-in-out;
 
 }
-
-@media (min-width: 500px) {
-  .card-style {
-   min-width: 200px;
-   min-height: 200px;
-  }
-
-
-}
-
-  .card-style:last-child {
-
-    height: 250px;
-    width: 200px;
-    
-  }

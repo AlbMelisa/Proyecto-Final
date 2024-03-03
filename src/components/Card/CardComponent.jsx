@@ -1,19 +1,13 @@
 import React from 'react'
-import Col from 'react-bootstrap/Col';
-import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Asegúrate de importar los estilos de Bootstrap
+import '../Card/CardComponent.css'
 
-
-const CardComponent = ({title, imageSource}) => {
-
+const CardComponent = ({title,imagen}) => {
   return (
-  <>
-    <Col  className='card-style p-0' >
-      <img alt="tarjetas" src={imageSource} width='180px' />
-      <h4>{title}</h4>
-    </Col>
-  </>
+    <div className='card-style'>
+       <img alt="tarjetas" src={imagen} width='180px' />
+        <h4>{title}</h4>
+    </div>
   )
 }
 
-export default CardComponent;
+export default CardComponent
