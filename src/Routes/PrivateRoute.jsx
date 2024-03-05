@@ -26,7 +26,7 @@ const PrivateRoute = ({setUser, isLogged,userInfo}) => {
           <Route path='/crud/Clases' element={<CrudClases setUSer={setUser} nombre="clases"/>}/>
         </>
       )}  
-      
+      <Route path='/Clases' element={''} />
       <Route path='/Plan/full' element={<Plan isLogged={isLogged} nombre="full"/>} />
       <Route path='/Plan/musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
       <Route path='/Plan/clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
