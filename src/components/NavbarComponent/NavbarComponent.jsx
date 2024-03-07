@@ -63,6 +63,14 @@ const NavbarComponent = ({ isLogged }) => {
             >
               Sobre Nosotros
             </Nav.Link>
+            {isLogged && (
+              <Nav.Link
+                href="/Clases"
+                className="text-black mx-2 fs-8 buttonStyle mt-2"
+              >
+                Clases
+              </Nav.Link>
+            )}
           </Nav>
           {isLogged ? (
             <Button className="mt-3 mx-1 buttonStyle" onClick={handleLogout}>

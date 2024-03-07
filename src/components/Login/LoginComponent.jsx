@@ -21,7 +21,6 @@ const LoginComponent = ({setUser}) => {
     body: JSON.stringify(data)
     })
     
-    
   if (response.status === 400) {
     Swal.fire({
       title: "El usuario no es correcto!",
@@ -40,12 +39,11 @@ const LoginComponent = ({setUser}) => {
 
     if(response.status === 200){
       const responseData = await response.json()
+      
       const decoded = jwtDecode(responseData.accessToken)
       localStorage.setItem('token',responseData.accessToken)
       localStorage.setItem('isUserLogged',true)
-
       window.location.reload()
-     
     }
     reset()
   }

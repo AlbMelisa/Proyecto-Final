@@ -12,6 +12,7 @@ import CrudPlanes from '../pages/CrudPlanes/CrudPlanes'
 import CrudUsuarios from '../pages/CrudUsuarios/CrudUsuarios'
 import CrudClases from '../pages/CrudClases/CrudClases'
 import SobreNosotros from '../pages/SobreNosotros/SobreNosotros'
+import Clases from '../pages/Clases/Clases'
 
 const PrivateRoute = ({setUser, isLogged,userInfo}) => {
   return (
@@ -26,7 +27,7 @@ const PrivateRoute = ({setUser, isLogged,userInfo}) => {
           <Route path='/crud/Clases' element={<CrudClases setUSer={setUser} nombre="clases"/>}/>
         </>
       )}  
-      
+      <Route path='/Clases' element={<Clases userInfo={userInfo}/>} />
       <Route path='/Plan/full' element={<Plan isLogged={isLogged} nombre="full"/>} />
       <Route path='/Plan/musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
       <Route path='/Plan/clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
