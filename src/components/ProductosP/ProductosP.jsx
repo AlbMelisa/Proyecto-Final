@@ -3,13 +3,14 @@ import Col from "react-bootstrap/Col";
 import { CardProducto } from "../CardProducto/CardProducto";
 import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { API_URL } from "../../utils/constant.js";
 
 const ProductosP = () => {
   const [productos,setProductos] = useState([])
 
   const getProductos = async() => {
     try {
-      const response = await fetch('http://localhost:4000/productos',{
+      const response = await fetch(`${API_URL}productos`,{
         method: 'GET',
         headers: { "Content-Type": "application/json" },
         credentials: 'include' // Corrección aquí

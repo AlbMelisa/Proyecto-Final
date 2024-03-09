@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
 import { API_URL } from "../../utils/constant.js";
 import "../Clases/ClasesComponent.css";
-import { json } from "react-router-dom";
+
 const ClasesComponent = ({ userInfo }) => {
   const [user, setUser] = useState(null);
   const [plan,setPlan] = useState(null)
