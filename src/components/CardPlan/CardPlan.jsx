@@ -1,5 +1,4 @@
 import {
-  Container,
   Row,
   Col,
   Button,
@@ -13,7 +12,6 @@ import { API_URL } from "../../utils/constant.js";
 import Swal from "sweetalert2";
 import '../CardPlan/CardPlan.css'
 import emailjs from 'emailjs-com';
-import { useParams } from 'react-router-dom';
 
 const CardPlan = ({isLogged,nombre}) => {
   console.log(nombre)
