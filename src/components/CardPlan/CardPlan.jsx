@@ -12,6 +12,8 @@ import { API_URL } from "../../utils/constant.js";
 import Swal from "sweetalert2";
 import '../CardPlan/CardPlan.css'
 import emailjs from 'emailjs-com';
+import imagenPlan from '../../images/imgProyecto-plan.png'
+import logo from '../../images/LogoGymageLetras.png'
 
 const CardPlan = ({isLogged,nombre}) => {
   console.log(nombre)
@@ -80,7 +82,7 @@ const CardPlan = ({isLogged,nombre}) => {
             <Col md="auto" className="p-0 m-0">
               <div className="d-flex justify-content-center  m-0">
                 <Image
-                  src="https://trello.com/1/cards/65a2081e1c84a98d8542b641/attachments/65a210edb576adc057ef1a80/previews/65a210eeb576adc057ef1ae5/download/imgProyecto.png"
+                  src={imagenPlan}
                   className="imagePlan  m-2 m-md-0 m-xl-0"
                 />
               </div>
@@ -93,7 +95,7 @@ const CardPlan = ({isLogged,nombre}) => {
                 <Col className="m-0 p-0">
                   <div className="d-flex justify-content-end p-0 m-0">
                     <Image
-                      src="https://trello.com/1/cards/65a2081264be9affda46ff7d/attachments/65a208ee049d921f3d252e18/previews/65a208ef049d921f3d252e3e/download/LogoGymageLEtras.png"
+                      src={logo}
                       className="gymmageStyle"
                     />
                   </div>

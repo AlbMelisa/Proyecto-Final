@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import "../NavbarComponent/NavbarComponent.css";
 import { useState } from "react";
 import { API_URL } from "../../utils/constant.js";
+import logoLetras from '../../images/LogoGymageLetras.png'
+import logoImagen from '../../images/LogoGymage.png'
 
 const NavbarComponent = ({ isLogged }) => {
   const [userList, setUserList] = useState([]);
@@ -33,7 +35,7 @@ const NavbarComponent = ({ isLogged }) => {
         <Link to="/Home">
           <Navbar.Brand>
             <Image
-              src="https://trello.com/1/cards/65a2081264be9affda46ff7d/attachments/65a208ee049d921f3d252e18/previews/65a208ef049d921f3d252e3e/download/LogoGymageLEtras.png"
+              src={logoLetras}
               className="gymmageStyle  mt-4"
             />
           </Navbar.Brand>
@@ -74,7 +76,7 @@ const NavbarComponent = ({ isLogged }) => {
           </Nav>
           {isLogged ? (
             <Button className="mt-3 mx-1 buttonStyle" onClick={handleLogout}>
-              <Link to="/home" className="text-decoration-none text-dark">
+              <Link to="/Home" className="text-decoration-none text-dark">
                 Cerrar Sesión
               </Link>
             </Button>
