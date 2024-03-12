@@ -16,11 +16,11 @@ const PublicRouter = ({isLogged ,setUser}) => {
       <BrowserRouter>
         <NavbarComponent isLogged={isLogged }/>
           <Routes>
-            <Route path='/' element={<Navigate to={'/home'}/>}/>
+            <Route path='/' element={<Navigate to={'/Home'}/>}/>
             <Route path='/Home' element={<Home setUSer={setUser}/>} />
-            <Route path='/Plan/full' element={<Plan isLogged={isLogged} nombre="full"/>} />
-            <Route path='/Plan/musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
-            <Route path='/Plan/clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
+            <Route path='/Plan/Full' element={<Plan isLogged={isLogged} nombre="full"/>} />
+            <Route path='/Plan/Musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
+            <Route path='/Plan/Clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
 
             <Route path='/Registro' element={<Registro/>}/>
             <Route path='/Contacto' element={<Contacto/>}/>

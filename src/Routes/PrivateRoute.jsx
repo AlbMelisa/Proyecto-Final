@@ -14,8 +14,8 @@ const PrivateRoute = ({setUser, isLogged,userInfo}) => {
   return (
     <>
    <Routes>
-      <Route path='/' element={<Navigate to='/home' />} />
-      <Route path='/home' element={<Home setUSer={setUser} userInfo={userInfo} />} />
+      <Route path='/' element={<Navigate to='/Home' />} />
+      <Route path='/Home' element={<Home setUSer={setUser} userInfo={userInfo} />} />
       {userInfo && userInfo.role === 'admin' && (
         <>
           <Route path='/crud/Planes' element={<CrudClases setUSer={setUser} nombre="planes"/>} />

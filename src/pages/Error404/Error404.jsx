@@ -10,7 +10,7 @@ const Error404 = () => {
         <h1>La página que ha solicitado no se encuentra disponible</h1>
         <div className="boton">
           <button>
-            <a href="/home">Volver atrás</a>
+            <a href="/Home">Volver atrás</a>
           </button>
         </div>
       </div>
