@@ -40,7 +40,7 @@ const NavbarComponent = ({ isLogged }) => {
             />
           </Navbar.Brand>
         </Link>
-        <Link to="/Home">
+        <Link to="/home">
           <Image
             src={logoImagen}
             className="logoStyle mt-3 "
@@ -54,20 +54,20 @@ const NavbarComponent = ({ isLogged }) => {
             navbarScroll
           >
             <Nav.Link
-              href="/Contacto"
+              href="/contacto"
               className="text-black mx-2 fs-8 buttonStyle mt-2"
             >
               Contactanos
             </Nav.Link>
             <Nav.Link
-              href="/SobreNosotros"
+              href="/sobrenosotros"
               className="text-black mx-2 fs-8 buttonStyle mt-2"
             >
               Sobre Nosotros
             </Nav.Link>
             {isLogged && (
               <Nav.Link
-                href="/Clases"
+                href="/clases"
                 className="text-black mx-2 fs-8 buttonStyle mt-2"
               >
                 Clases
@@ -76,7 +76,7 @@ const NavbarComponent = ({ isLogged }) => {
           </Nav>
           {isLogged ? (
             <Button className="mt-3 mx-1 buttonStyle" onClick={handleLogout}>
-              <Link to="/Home" className="text-decoration-none text-dark">
+              <Link to="/home" className="text-decoration-none text-dark">
                 Cerrar Sesión
               </Link>
             </Button>

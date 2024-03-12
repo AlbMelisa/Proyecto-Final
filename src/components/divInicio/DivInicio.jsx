@@ -7,13 +7,13 @@ const DivInicio = () => {
   return (
     <Row className='g-0 divInicio' >
       <Col className='d-flex justify-content-center align-items-center'>
-        <Link to='/crud/Usuarios' className='text-decoration-none text-dark' >Usuarios</Link>
+        <Link to='/crud/usuarios' className='text-decoration-none text-dark' >Usuarios</Link>
       </Col>
       <Col className='d-flex justify-content-center align-items-center'>
-        <Link to='/crud/Clases' className='text-decoration-none text-dark'>Clases</Link>
+        <Link to='/crud/clases' className='text-decoration-none text-dark'>Clases</Link>
       </Col>
       <Col className='d-flex justify-content-center align-items-center'>
-        <Link to='/crud/Planes' className='text-decoration-none text-dark'>Planes</Link>
+        <Link to='/crud/planes' className='text-decoration-none text-dark'>Planes</Link>
       </Col>
     </Row>
   )

@@ -87,7 +87,7 @@ const FooterComponent = () => {
                 <ul className="list-unstyled info-links">
                   <li>
                     <Link
-                    to='/Contacto'
+                    to='/contacto'
                       className="text-white font-size-normal"
                     >
                       <FaMobileAlt
@@ -99,7 +99,7 @@ const FooterComponent = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/SobreNosotros" className="text-white font-size-normal">
+                    <Link to="/sobrenosotros" className="text-white font-size-normal">
                       <FaPeopleGroup size={20} color="white" /> Nosotros
                     </Link>
                   </li>
