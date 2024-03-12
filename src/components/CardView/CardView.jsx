@@ -18,7 +18,7 @@ export const CardView = (props) => {
         <div className="text-center">
           <Button className="buttonVieww mb-3">
             <Link
-              to={`/Plan/${props.nombre}`}
+              to={`/plan/${props.nombre}`}
               className="text-decoration-none text-dark"
             >
               ACCEDER AHORA

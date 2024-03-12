@@ -8,12 +8,12 @@ export const CardProducto = ({ nombre, image, precio }) => {
       <Card className="cardProducto m-2">
         <Card.Body>
           <Card.Title className="text-light">
-            <Link to={"/Error404"} className="text-decoration-none text-light">
+            <Link to={"/error404"} className="text-decoration-none text-light">
               {nombre}
             </Link>
           </Card.Title>
         </Card.Body>
-        <Link to={"/Error404"}>
+        <Link to={"/error404"}>
           <Card.Img variant="top" src={image} className="imgProducto" />
         </Link>
         <Card.Text className="text-light text-center">${precio}</Card.Text>

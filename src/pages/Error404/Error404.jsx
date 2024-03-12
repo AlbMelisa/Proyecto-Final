@@ -1,5 +1,6 @@
 import React from "react";
 import "./Error404.css";
+import { Link } from "react-router-dom";
 
 const Error404 = () => {
   return (
@@ -10,7 +11,7 @@ const Error404 = () => {
         <h1>La página que ha solicitado no se encuentra disponible</h1>
         <div className="boton">
           <button>
-            <a href="/Home">Volver atrás</a>
+            <Link to='/home'>Volver atrás</Link>
           </button>
         </div>
       </div>

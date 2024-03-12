@@ -16,18 +16,18 @@ const PublicRouter = ({isLogged ,setUser}) => {
       <BrowserRouter>
         <NavbarComponent isLogged={isLogged }/>
           <Routes>
-            <Route path='/' element={<Navigate to={'/Home'}/>}/>
-            <Route path='/Home' element={<Home setUSer={setUser}/>} />
-            <Route path='/Plan/Full' element={<Plan isLogged={isLogged} nombre="full"/>} />
-            <Route path='/Plan/Musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
-            <Route path='/Plan/Clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
+            <Route path='/' element={<Navigate to={'/home'}/>}/>
+            <Route path='/home' element={<Home setUSer={setUser}/>} />
+            <Route path='/plan/full' element={<Plan isLogged={isLogged} nombre="full"/>} />
+            <Route path='/plan/musculacion' element={<Plan isLogged={isLogged} nombre="musculacion" />} />
+            <Route path='/plan/clases' element={<Plan isLogged={isLogged} nombre="clases"/>} />
 
-            <Route path='/Registro' element={<Registro/>}/>
-            <Route path='/Contacto' element={<Contacto/>}/>
-            <Route path='/SobreNosotros' element={<SobreNosotros/>}/>
-            <Route path='/Error404' element={<Error404/>}/>
+            <Route path='/registro' element={<Registro/>}/>
+            <Route path='/contacto' element={<Contacto/>}/>
+            <Route path='/sobrenosotros' element={<SobreNosotros/>}/>
+            <Route path='/error404' element={<Error404/>}/>
             <Route path='/login' element={<LoginComponent setUser={setUser}/>}/>
-            <Route path='*' element={<Navigate to={'/Error404'}/>}/>
+            <Route path='*' element={<Navigate to={'/error404'}/>}/>
           </Routes>
           <FooterComponent />
       </BrowserRouter>
