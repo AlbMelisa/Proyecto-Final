@@ -42,7 +42,7 @@ const NavbarComponent = ({ isLogged }) => {
         </Link>
         <Link to="/Home">
           <Image
-            src="https://trello.com/1/cards/65a2081264be9affda46ff7d/attachments/65a208ebc95461db4f8ff4d7/previews/65a208ebc95461db4f8ff669/download/LogoGymage.png1x180"
+            src={logoImagen}
             className="logoStyle mt-3 "
           />
         </Link>
