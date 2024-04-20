@@ -70,6 +70,8 @@ const RegisterComponents = () => {
                   placeholder="Ingrese su nombre.."
                   minLength={3}
                   maxLength={50}
+                  pattern="[A-Za-z]+"
+                  title="Recorda ingresar solo letras"
                   {...register("nombre", {
                     required: "Este campo es obligatorio",
                   })}
@@ -87,6 +89,8 @@ const RegisterComponents = () => {
                   placeholder="Ingrese su apellido.."
                   minLength={3}
                   maxLength={60}
+                  pattern="[A-Za-z]+"
+                  title="Recorda ingresar solo letras"
                   {...register("apellido", {
                     required: "Este campo es obligatorio",
                   })}

@@ -21,7 +21,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
   }
   // CRUD - UPDATE - DELETE
   const updateUser = async (userData) => {
-    console.log("El dato es:", userData, url);
+  //  console.log("El dato es:", userData, url);
     if (nombre === "clases") {
       url = `${API_URL}clase/modificar`;
     }
@@ -38,7 +38,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
 
       if (!response.ok) {
         const data = await response.json();
-        console.log(data);
+      //  console.log(data);
         return;
       }
       console.log("Usuario actualizado exitosamente");
@@ -65,7 +65,7 @@ const ModalComponent = ({ show, handleClose, selectedUser, token, nombre }) => {
 
           if (!response.ok) {
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             return;
           }
 

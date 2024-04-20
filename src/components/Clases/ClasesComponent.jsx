@@ -22,8 +22,8 @@ const ClasesComponent = ({ userInfo }) => {
 
       if (response.status === 200) {
         const userData = await response.json();
-        console.log("user", userData.nombre);
-        console.log("user", userData.plan);
+      //  console.log("user", userData.nombre);
+      //  console.log("user", userData.plan);
         setPlan(userData.plan)
         setUser(userData);
       }
@@ -40,7 +40,7 @@ const ClasesComponent = ({ userInfo }) => {
 
    const getClases = async (date) => { 
      try {
-       console.log(date); 
+      // console.log(date); 
        const response = await fetch(`${API_URL}clase/${date}`, {
          method: "GET",
          headers: { Authorization: `Bearer ${token}` },
@@ -50,7 +50,7 @@ const ClasesComponent = ({ userInfo }) => {
        if (response.status === 200) {
          const data = await response.json();
          setClases(data);
-         console.log(data);
+       //  console.log(data);
        }
      } catch (error) {
        console.log(error);

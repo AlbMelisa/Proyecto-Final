@@ -41,7 +41,7 @@ const Grilla = ({ setUser , nombre}) => {
   
     if (response.status !== 200) {
       const data = await response.json();
-      console.log(data);
+      //console.log(data);
       localStorage.clear();
       setUser({
         token: null,
@@ -55,7 +55,7 @@ const Grilla = ({ setUser , nombre}) => {
     if (response.status === 200) {
       const data = await response.json();
       setUserList(data);
-      console.log(data);
+     // console.log(data);
     }
   };
 
