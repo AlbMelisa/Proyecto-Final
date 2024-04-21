@@ -22,7 +22,6 @@ const Clima = () => {
         }
         const data = await response.json();
         setClimaData(data);
-        console.log(data);
       } catch (error) {
         console.error("Error al obtener datos de la API", error);
         // Puedes manejar el error aquí si es necesario
